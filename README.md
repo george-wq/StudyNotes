@@ -2,13 +2,15 @@
 学习笔记持续更新中……
 
 ## 目录
-1. [test](https://github.com/george-wq/StudyNotes/issues/1)
+2.1.1. [jQuery整体架构-核心功能函数揭秘](https://github.com/george-wq/StudyNotes/issues/1)
 
 ## 勘误及提问
 
 如果有疑问或者发现错误，可以在相应的 issues 进行提问或勘误。
 
 如果喜欢或者有所启发，欢迎 star，对作者也是一种鼓励。
+
+![不能拷贝函数](https://github.com/george-wq/StudyNotes/master/images/javascript进阶攻略/共享原型.png)
 
 ## License
 
