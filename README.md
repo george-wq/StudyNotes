@@ -4,6 +4,8 @@
 ## 目录
 2.1.1. [jQuery整体架构-核心功能函数揭秘](https://github.com/george-wq/StudyNotes/issues/1)
 
+2.2.1. [选择器](https://github.com/george-wq/StudyNotes/issues/2)
+
 ## 勘误及提问
 
 如果有疑问或者发现错误，可以在相应的 issues 进行提问或勘误。
