@@ -10,8 +10,6 @@
 
 如果喜欢或者有所启发，欢迎 star，对作者也是一种鼓励。
 
-![不能拷贝函数](https://github.com/george-wq/StudyNotes/tree/master/images/javascript/sharePrototype.png)
-
 ## License
 
 所有文章采用[知识共享署名-非商业性使用-相同方式共享 3.0 中国大陆许可协议]
