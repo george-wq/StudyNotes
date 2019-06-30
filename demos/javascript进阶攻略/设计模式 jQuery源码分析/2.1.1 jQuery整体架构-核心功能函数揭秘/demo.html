@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script src="jQuery.1.0.1.js"></script>
+    <script>
+        // console.log($);
+        // console.log($());
+
+        // 任意对象扩展 
+        // 浅拷贝
+        // var obj = $.extend({name: 'george', age: '30'}, {salary: '30K'});
+        // console.log(obj);
+
+        // 深拷贝
+        var obj = $.extend(true, {salary: '30K', person: {sex: '男'}}, {age: '30', person: {name: 'bbb'}});
+        console.log(obj);
+
+        // jQuery本身扩展
+        // $.extend({
+        //     work: function(){}
+        // });
+        // jQuery.work();
+
+        // jQuery实例对象扩展
+        // $.fn.extend({
+        //     sex: '男'
+        // });
+        // $().sex
+    </script>
+</body>
+</html>
