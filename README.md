@@ -6,6 +6,8 @@
 
 2.2.1. [选择器](https://github.com/george-wq/StudyNotes/issues/2)
 
+2.3.1. [Callbacks入门&原理分析](https://github.com/george-wq/StudyNotes/issues/3)
+
 ## 勘误及提问
 
 如果有疑问或者发现错误，可以在相应的 issues 进行提问或勘误。

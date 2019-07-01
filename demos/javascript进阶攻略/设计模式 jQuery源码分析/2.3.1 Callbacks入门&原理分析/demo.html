@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+     <script src="Underscore.js"></script>   
+     <script>
+         var a = 1;
+         var cb = _.callbacks();
+         cb.add(function(){
+             this.name = 1;
+             console.log(this.name);
+         });
+         cb.fire();
+         cb.add(function() {
+             console.log(2);
+         });
+         cb.fire();
+     </script>
+</body>
+</html>
