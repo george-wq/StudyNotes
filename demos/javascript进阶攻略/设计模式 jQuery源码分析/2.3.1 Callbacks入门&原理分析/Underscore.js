@@ -12,7 +12,7 @@
 				testting = true;
 				length = list.length;
 				for(;index < length;index++) {
-                    // 传入执行上下文 和 参数,并且立即执行
+					// 传入执行上下文 和 参数,并且立即执行
 					if(list[index].apply(data[0], data[1]) === false && options.stopOnfalse) { 
 						break;
 					}

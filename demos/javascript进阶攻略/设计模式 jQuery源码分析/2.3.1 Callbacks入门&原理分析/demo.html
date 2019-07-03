@@ -7,19 +7,25 @@
     <title>Document</title>
 </head>
 <body>
-     <script src="Underscore.js"></script>   
+     <script src="Underscore.js"></script>
      <script>
          var a = 1;
-         var cb = _.callbacks();
-         cb.add(function(){
-             this.name = 1;
-             console.log(this.name);
+         var cb = _.callbacks('once');
+         cb.add(function() {
+             console.log(111);
+         });
+         cb.add(function() {
+             console.log(333);
          });
          cb.fire();
          cb.add(function() {
-             console.log(2);
+             console.log(222);
          });
-         cb.fire();
+         cb.add(function() {
+             console.log(444);
+         });
+        //  cb.fire();
+
      </script>
 </body>
 </html>

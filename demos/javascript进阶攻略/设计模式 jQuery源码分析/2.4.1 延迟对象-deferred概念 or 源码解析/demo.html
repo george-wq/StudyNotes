@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script src="jQuery.1.0.2.js"></script>
+		<script>
+			var wait = function() {
+				var der = $.Deferred();     //延迟对象    deferred
+				// console.log(der); 
+				// console.log(der.promise()); 
+				var test = function() {
+					console.log("老司机开车了");
+					der.resolve("max");     //成功     队列中的处理函数  调用成功这个队列中的处理函数
+				}
+				setTimeout(test, 2000);   
+				return der;    //延迟对象 
+			}
+            
+			//延迟对象的状态 决定调用那个队列中的处理函数
+			$.when(wait())     //promise对象promise.done()   self.add
+				.done(function(name) {
+					console.log(name)
+					console.log("执行成功");
+				})
+				.fail(function() {
+					console.log("执行失败");
+				});
+				
+				
+				/*
+				var cbs =  $.callbacks();   //队列        //  var list = tuple[2], jQuery.callbacks("once memory")
+				cbs.add(function(){   //添加处理函数    //promise.done()  promise.fail()
+					
+				});
+				
+				cbs.fire();  //执行队列中的处理函数      //der.resolve("max"); 
+				
+				
+				*/
+		</script>
+	</body>
+</html>
