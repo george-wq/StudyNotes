@@ -9,22 +9,35 @@
 <body>
      <script src="Underscore.js"></script>
      <script>
-         var a = 1;
-         var cb = _.callbacks('once');
-         cb.add(function() {
-             console.log(111);
-         });
-         cb.add(function() {
-             console.log(333);
-         });
-         cb.fire();
-         cb.add(function() {
-             console.log(222);
-         });
-         cb.add(function() {
-             console.log(444);
-         });
+        //  var a = 1;
+        //  var cb = _.callbacks('unique');
+        //  cb.add(function() {
+        //      console.log(333);
+        //  });
+        //  cb.add(function() {
+        //      console.log(333);
+        //  });
         //  cb.fire();
+        //  cb.add(function() {
+        //      console.log(222);
+        //  });
+        //  cb.add(function() {
+        //      console.log(444);
+        //  });
+        //  cb.fire();
+
+        var cb = _.callbacks('memory');
+        cb.add(function(){
+            console.log('add one');
+        });
+        cb.fire();
+        cb.add(function() {
+            console.log('add two');
+        });
+        cb.add(function() {
+            console.log('add three');
+        });
+        cb.fire();
 
      </script>
 </body>

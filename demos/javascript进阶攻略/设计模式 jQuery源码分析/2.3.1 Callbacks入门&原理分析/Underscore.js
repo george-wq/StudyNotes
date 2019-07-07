@@ -4,11 +4,11 @@
 		callbacks: function(options) {
 			options = typeof options === "string" ? (optionsCache[options] || createOptions(options)) : {};
             var list = [];
-			var index,length,testting,memory,start,starts;
-			var fire = function(data){
+			var index,length, testting, memory, start, starts;
+			var fire = function(data) {
 				memory = options.memory && data;
-				index = starts||0;
-				start = 0;
+				index = starts || 0;
+				starts = 0;
 				testting = true;
 				length = list.length;
 				for(;index < length;index++) {
@@ -22,26 +22,26 @@
 				add: function() {
 					var args = Array.prototype.slice.call(arguments);
 					start = list.length;
-					args.forEach(function(fn){
-						if(toString.call(fn) ==="[object Function]"){
+					args.forEach(function(fn) {
+						if(toString.call(fn) ==="[object Function]") {
 							list.push(fn);
 						}
 					});
-					if(memory){
+					if(memory) {
 					 starts = start;
 					 fire(memory);	
 					}
                 },
                 // 调用fire函数，并且传入参数
-				fireWith: function(context, arguments){
+				fireWith: function(context, arguments) {
 					var args = [context, arguments];
-					if(!options.once || !testting){
+					if(!options.once || !testting) {
 					 fire(args);
 					}
 					
                 },
                 // 传递参数
-				fire: function(){
+				fire: function() {
 					self.fireWith(this, arguments);
 				}
 			}

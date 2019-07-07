@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<style>
+		#proxy {
+			cursor: pointer;
+		}
+	</style>
+	<body>
+		<ul id="proxy">
+			<li>主页</li>
+			<li>文章</li>
+			<li>官宣</li>
+			<li>简介</li>
+		</ul>
+		<script src="jQuery.1.0.2.js"></script>
+		<script>
+			// var ElemUl = document.getElementById("proxy");
+			// var ElemLi = ElemUl.getElementsByTagName('li');
+			// for (var i = 0; i < ElemLi.length; i++) {
+			// 	ElemLi[i].onclick = function() {
+			// 		alert("loading...");
+			// 	}
+			// }
+ 
+			// var proxy = document.getElementById("proxy");
+			// proxy.onclick = function(event) {
+			// 	var target = event.target;
+			// 	if (target.nodeName.toLowerCase() == 'li') {
+			// 		alert("loading...");
+			// 	}
+			// }
+
+			$('#proxy').on('click', function(){
+				alert("loading...");
+			});
+
+		</script>
+	</body>
+</html>
