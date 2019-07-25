@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style>
+		#box {
+			width: 300px;
+			height: 300px;
+			background: #abcedf;
+		}
+	</style>
+	<body>
+		<div id="box"></div>
+		<script src="jQuery.1.0.2.js"></script>
+		<script>
+			//没有代理子元素的事件 仅为自己绑定事件
+			$("#box").on("click", function() {
+				console.log("loading...");
+			});
+	
+			
+// 			$("#box").on("mouseover", function() {
+// 				console.log("loding...");
+// 			});
+
+			/**
+			 *  1. $("#box") => jQuery实例对象, 调用在jQuery原型上的on方法 => 传入参数(事件、回调函数)
+			 * 
+			 *  2. 通过2层返回值的传递，将调用jQuery 事件模块上的add方法, 此时this 的指向已从 jQuery实例对象 到 具体element对象
+			 *  
+			 *  3. add 方法中
+			 * 		(1). 为cache缓存对象增加事件处理句柄
+			 * 		(2). 直接在element对象上定义一个或多个新的属性或修改现有属性,并返回该对象
+			 * 		(3). cache缓存对象上绑定dispatch回调函数的引用
+			 * 		(4). 给element对象添加事件addEventListener
+			 * 
+			 * 	4. 执行dispatch, 其中调用fix解决了IE兼容性问题
+			 * 
+			 * 	5. 执行handlers, 执行事件处理函数
+			 * 
+			 * **/
+		</script>
+	</body>
+</html>

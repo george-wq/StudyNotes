@@ -29,6 +29,7 @@
 					});
 					if(memory) {
 					 starts = start;
+					 // 通过作用域链找到fire方法
 					 fire(memory);	
 					}
                 },

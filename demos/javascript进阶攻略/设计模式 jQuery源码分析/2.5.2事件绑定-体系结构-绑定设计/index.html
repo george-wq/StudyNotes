@@ -1,0 +1,76 @@
+!
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		<style>
+			#box {
+				width: 300px;
+				height: 300px;
+				background: #abcedf;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		<script src="jquery-2.0.3.js"></script>
+		<script>
+			//多个事件绑定同一个函数
+			// $("#id").on("mouseover mouseout", function() {
+			// 	console.log("loading...")
+			// });
+
+			// //多个事件绑定不同函数
+			// $("#id").on({
+			// 	mouseover: function() {
+			// 		$("body").css("background-color", "lightgray");
+			// 	},
+			// 	mouseout: function() {
+			// 		$("body").css("background-color", "lightblue");
+			// 	},
+			// 	click: function() {
+			// 		$("body").css("background-color", "yellow");
+			// 	}
+			// });
+
+			// //绑定自定义事件
+			// $("#id").on("myOwnEvent", function(event, showName) {
+			// 	console.log("loading...")
+			// });
+			// $("#id").trigger("myOwnEvent", ["max"]);
+
+			// function test(a, b) {
+			// 	console.log(c);
+			// 	var c = 123;
+			// 	function c() {};
+			// 	console.log(b);
+			// 	console.log(cd);
+			// 	var b = function cd(){}
+			// 	console.log(cd);
+			// }
+			// test(1,3);
+
+			// /*
+			// 	1. AO: {}
+
+			// 	2: AO: {
+			// 		a: undefined,
+			// 		b: undefined,
+			// 		c: undefined,
+			// 	   }
+
+			// 	4: AO: {
+			// 		a: function(){},
+			// 		b: 3,
+			// 		c: function(){},
+			// 		cd: function(){},
+			// 	   }
+			// */
+
+			
+			
+		</script>
+	</body>
+</html>

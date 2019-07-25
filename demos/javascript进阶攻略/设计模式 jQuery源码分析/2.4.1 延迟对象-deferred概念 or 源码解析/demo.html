@@ -7,18 +7,18 @@
 	<body>
 		<script src="jQuery.1.0.2.js"></script>
 		<script>
-			var wait = function() {
-				var der = $.Deferred();     //延迟对象    deferred
-				// console.log(der); 
-				// console.log(der.promise()); 
-				var test = function() {
-					console.log("老司机开车了");
-					der.resolve("max");     //成功     队列中的处理函数  调用成功这个队列中的处理函数
-				}
-				setTimeout(test, 1000); 
-				// der.resolve("max");
-				return der.promise();    //延迟对象 状态封存
-			}
+			// var wait = function() {
+			// 	var der = $.Deferred();     //延迟对象    deferred
+			// 	// console.log(der); 
+			// 	// console.log(der.promise()); 
+			// 	var test = function() {
+			// 		console.log("老司机开车了");
+			// 		der.resolve("max");     //成功     队列中的处理函数  调用成功这个队列中的处理函数
+			// 	}
+			// 	setTimeout(test, 1000); 
+			// 	// der.resolve("max");
+			// 	return der.promise();    //延迟对象 状态封存
+			// }
 			// var wait1 = function() {
 			// 	var der = $.Deferred();     //延迟对象    deferred
 			// 	// console.log(der); 
@@ -32,14 +32,14 @@
 			// 	return der.promise();    //延迟对象 状态封存
 			// }
 
-			wait().then(function() {
-				console.log(111);
-				var der = $.Deferred();
-				der.resolve('george');
-				return der;
-			}).then(function(name) {
-				console.log(name);
-			});
+			// wait().then(function() {
+			// 	console.log(111);
+			// 	var der = $.Deferred();
+			// 	der.resolve('george');
+			// 	return der;
+			// }).then(function(name) {
+			// 	console.log(name);
+			// });
             
 			//延迟对象的状态 决定调用那个队列中的处理函数
 			// $.when(wait(), wait1())   // promise对象 ($.when(wait()) 相当于 promise.done() | promise.fail())  self.add
@@ -65,13 +65,24 @@
 				
 				遗留3个问题: 
 				1. Deferred貌似可以传入一个function
-					如果这样调用 $.Deferred(fun),那么会调用fun并传入一个deferred对象，如果没有fun，则直接返回deferred对象。
+				如果这样调用 $.Deferred(fun),那么会调用fun并传入一个deferred对象，如果没有fun，则直接返回deferred对象。
 				2. then
 				3. when传入多个函数的处理
 				
 				为什么返回self对象 => 每次获取的是对象的副本
-
 				*/
+
+				// function foo(name) {
+				// 	var self = {
+				// 		name: name
+				// 	};
+				// 	return self;
+				// }
+				// var fn = foo('george');
+				// var fn1 = foo('george1');
+
+				// console.log(fn);
+				// console.log(fn1);
 		</script>
 	</body>
 </html>
