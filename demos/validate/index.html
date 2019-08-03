@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jQuery Validate</title>
+    <script src="jquery.js"></script>
+    <script src="jQuery.validate.js"></script>
+</head>
+<body>
+    <form id="form-data"
+        method="POST">
+      <div>
+          <label for="username">Username</label>
+          <div>
+              <input id="username"
+                     type="text">
+          </div>
+      </div>
+      <div>
+          <label for="idcard">idcard</label>
+          <div>
+              <input id="idcard"
+                     name="idcard">
+          </div>
+      </div>
+      <div>
+          <label for="phone">phone</label>
+          <div>
+              <input id="phone"
+                     name="phone"
+                     type="text">
+          </div>
+      </div>
+      <div>
+          <label for="email">Email</label>
+          <div>
+              <input id="email"
+                     name="email"
+                     type="text">
+          </div>
+      </div>
+      <input type="submit" value="SUBMIT">
+  </form>
+    <script> 
+        $('#form-data').validate({
+            onChange: { enabled: true,  ids: ['username'] },
+            onBlur: { enabled: true, ids: ['username'] },
+            onKeyup: { enabled: true, ids: ['username'] },
+            rules: {
+                username: { required: true },
+                idcard: { required: true,  },
+                phone: { required: true },
+                email: { required: true },
+            },
+            messages: {
+                username:{ required:'必须输入名字' },
+                idcard:{ required:'必须输入身份证' },
+                phone:{ required:'必须输入手机号' },
+                email: { required:'必须输入邮箱地址' },
+            },
+        });
+    </script>
+</body>
+</html>

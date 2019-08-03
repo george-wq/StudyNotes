@@ -117,6 +117,8 @@
   // on. This helper accumulates all remaining arguments past the function’s
   // argument length (or an explicit `startIndex`), into an array that becomes
   // the last argument. Similar to ES6’s "rest parameter".
+  // _.restArguments = restArguments;
+  
   var restArguments = function(func, startIndex) {
     startIndex = startIndex == null ? func.length - 1 : +startIndex;
     return function() {
@@ -126,8 +128,10 @@
       for (; index < length; index++) {
         rest[index] = arguments[index + startIndex];
       }
+      // 其他函数会用到，例如 _.partial => case 1
       switch (startIndex) {
         case 0: return func.call(this, rest);
+        // arguments[0] => function(a, b) {return a + b;}  rest => [3]
         case 1: return func.call(this, arguments[0], rest);
         case 2: return func.call(this, arguments[0], arguments[1], rest);
       }
@@ -521,12 +525,16 @@
   // Returns everything but the last entry of the array. Especially useful on
   // the arguments object. Passing **n** will return all the values in
   // the array, excluding the last N.
+
+  // 返回数组中除了最后一个元素的其他全部元素。在arguments对象上特别有用
   _.initial = function(array, n, guard) {
     return slice.call(array, 0, Math.max(0, array.length - (n == null || guard ? 1 : n)));
   };
 
   // Get the last element of an array. Passing **n** will return the last N
   // values in the array.
+
+  //
   _.last = function(array, n, guard) {
     if (array == null || array.length < 1) return n == null ? void 0 : [];
     if (n == null || guard) return array[array.length - 1];
@@ -536,6 +544,8 @@
   // Returns everything but the first entry of the array. Aliased as `tail` and `drop`.
   // Especially useful on the arguments object. Passing an **n** will return
   // the rest N values in the array.
+
+  // 返回数组中除了第一个元素的其他全部元素。传递n参数将返回从n开始的剩余所有元素
   _.rest = _.tail = _.drop = function(array, n, guard) {
     return slice.call(array, n == null || guard ? 1 : n);
   };
@@ -549,13 +559,16 @@
   var flatten = function(input, shallow, strict, output) {
     output = output || [];
     var idx = output.length;
+    // [1, [2], [3, [[4]]]]
     for (var i = 0, length = getLength(input); i < length; i++) {
       var value = input[i];
       if (isArrayLike(value) && (_.isArray(value) || _.isArguments(value))) {
         // Flatten current level of array or arguments object.
         if (shallow) {
           var j = 0, len = value.length;
-          while (j < len) output[idx++] = value[j++];
+          // => j < len 接着while
+          while (j < len)
+            output[idx++] = value[j++];
         } else {
           flatten(value, shallow, strict, output);
           idx = output.length;
@@ -797,6 +810,8 @@
   // arguments pre-filled, without changing its dynamic `this` context. _ acts
   // as a placeholder by default, allowing any combination of arguments to be
   // pre-filled. Set `_.partial.placeholder` for a custom placeholder argument.
+  
+  // func是restArguments中case 1传过来的 boundArgs 是传过来的参数
   _.partial = restArguments(function(func, boundArgs) {
     var placeholder = _.partial.placeholder;
     var bound = function() {

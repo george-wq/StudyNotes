@@ -28,20 +28,50 @@
             }));
         **/
 
-        /** rest
-            function test(param1, param2, rest) {
-                console.log(param1);
-                console.log(rest);
-            }
-            var restTest = _.restArguments(test);
-            restTest(1,2,3,4,5,6,7,8,9);
-        **/
+        /** rest **/
+        // function test(param1, param2, rest) {
+        //     // console.log(param1);
+        //     console.log(rest);
+        // }
+        // var restTest = _.restArguments(test);
+        // console.log(restTest(1,2,3,4,5,6,7,8,9));
+        
 
         /** reduce **/
-        console.log(_.reduce([1, 2, 3], function(memo, num) {
-             return memo + num;
-        }, 0));
+        // console.log(_.reduce([1, 2, 3], function(memo, num) {
+        //      return memo + num;
+        // }, 0));
 
+        // console.log(_.flatten([1, [2], [3, [[4]]]], true));
+        
+        /** partial */
+        // var add = function(a, b) {
+        //     return a + b;
+        // }
+        // var self = _.partial(add, 1);
+        // // console.log(_.partial); 
+        // // console.log(_.partial(add, 3));
+        // console.log(self(2));
+
+        /** bind */
+        // var add = function(a, b) {
+        //     return a + b;
+        // }
+        // var bindAdd = add.bind(this, 3);
+        // console.log(bindAdd(2));
+
+        // var test = function(func, obj) {
+        //     console.log(func);
+        //     return function() {
+        //         console.log(arguments[0]);
+        //         func.call(this, arguments[0]);
+        //     }
+        // }
+        
+        // var test1 = test(function(age) {
+        //     console.log(age);
+        // });
+        // console.log(test1(30));
     </script>
 </body>
 </html>

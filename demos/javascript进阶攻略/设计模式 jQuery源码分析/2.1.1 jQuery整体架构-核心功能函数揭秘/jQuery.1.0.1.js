@@ -67,6 +67,10 @@
         },
     });
 
+    jQuery.extend({
+        validate
+    })
+
     // 共享原型
     jQuery.fn.init.prototype = jQuery.fn;
     root.$ = root.jQuery = jQuery;
