@@ -8,6 +8,8 @@
 
 2.3.1. [Callbacks入门&原理分析](https://github.com/george-wq/StudyNotes/issues/3)
 
+3.4.3. [throttle 与 debounce 概念解析源码实现](https://github.com/george-wq/StudyNotes/issues/4)
+
 ## 勘误及提问
 
 如果有疑问或者发现错误，可以在相应的 issues 进行提问或勘误。

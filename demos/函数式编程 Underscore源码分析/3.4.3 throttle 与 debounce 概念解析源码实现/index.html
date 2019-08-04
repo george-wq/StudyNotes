@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>throttle && debounce</title>
+</head>
+<body>
+    <div style="height:500px"></div>
+    <!-- <script src="throttle.js"></script> -->
+    <script src="debounce.js"></script>
+    <!-- <script src="underscore.js"></script> -->
+    <script>
+        /**
+         * 总结
+         * 
+         * 节流: remaining 逐步增大 
+         * 固定间隔wait后调用函数, 例如: wait = 1500ms
+         * 时间戳    0  1500  3000  4500  6000
+         * 函数调用  1  2     3     4     5
+         * 
+         * 防抖 
+         * 两次调用函数之间间隔了wait, 然后调用函数, 例如: wait = 1500ms
+         * 时间戳       0                 500                   1200                3000              3500               6000
+         * 用户调用函数  1                 2                     3                   4                 5                  6
+         * 函数调用     500 < 1500(不调用)    700 < 1500(不调用)    1800 > 1500(调用)       500 < 1500(不调用)     2500 > 1500(调用)
+         * */
+        
+        /** 
+         * 节流 throttle
+         * 一次触发function会调用2次 (立即执行、wait之后调用)、
+         * 调用两次: 首次执行 和 等待wait秒后再次执行时, 如果连续执行并不会都是执行两次 
+         * throttle _.throttle(function, wait, [options])
+         * function 处理函数
+         * wait 等待的时间
+         * options 配置
+         * { leading: false } 禁用 第一次执行
+         * { trailing: false } 禁用 wait之后执行
+         * */
+
+        /**
+        var throttled = _.throttle(function() {
+            console.log('hello throttle !');
+        }, 1500);
+
+        window.onscroll = throttled;
+        */
+
+        /**
+         * 防抖 debounce
+         * _.debounce(function, wait, [immediate]) 
+         * function 处理函数
+         * wait 等待的时间
+         * immediate 参数
+         * true 立即调用处理函数
+         * false 等待wait后执行处理函数
+        */
+
+        var debounced = _.debounce(function() {
+            console.log('hello debounce !');
+        }, 1500);
+
+        window.onscroll = debounced;
+
+    </script>
+</body>
+</html>
