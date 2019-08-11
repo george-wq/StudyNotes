@@ -8,6 +8,12 @@
 
 2.3.1. [Callbacks入门&原理分析](https://github.com/george-wq/StudyNotes/issues/3)
 
+3.1.4. [rest参数&underscore创建对象方式](https://github.com/george-wq/StudyNotes/issues/6) 
+ 
+3.2.1 & 2 & 3. [ Underscore辅助功能篇](https://github.com/george-wq/StudyNotes/issues/7) 
+
+3.4.1. [偏函数(partial) & 缓存(memoize)使用场景 源码分析](https://github.com/george-wq/StudyNotes/issues/8) 
+
 3.4.3. [throttle 与 debounce 概念解析源码实现](https://github.com/george-wq/StudyNotes/issues/4)
 
 3.5.5. [template模板引擎设计](https://github.com/george-wq/StudyNotes/issues/5)

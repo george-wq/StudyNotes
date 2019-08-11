@@ -609,6 +609,7 @@
       var value = array[i],
           computed = iteratee ? iteratee(value, i, array) : value;
       if (isSorted && !iteratee) {
+        // 如果数组是有序的，只需要和上一个元素对比即可
         if (!i || seen !== computed) result.push(value);
         seen = computed;
       } else if (iteratee) {

@@ -1230,14 +1230,14 @@
       var value = iteratee(obj);
   
       var low = 0, high = getLength(array);
-  
+      // [1,2,3,4,5,6,7,8,9] value = 8
       // 二分查找
-      while (low < high) {
-        var mid = Math.floor((low + high) / 2);
+      while (low < high) { // 7 < 7
+        var mid = Math.floor((low + high) / 2); 
         if (iteratee(array[mid]) < value)
-          low = mid + 1;
+          low = mid + 1; 
         else
-          high = mid;
+          high = mid; 
       }
   
       return low;
