@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .last-item {
+        color: red;
+    }
+</style>
+<body>
+    <div id="box"></div>
+    <script src="templateUnderscore.js"></script>
+    <script type="text/template" id="tpl">
+		<ul class="list">
+          <%obj.forEach(function(e, i, a){%>
+           <% if(i === 0 ){%>
+            <li class="last-item"><%=e.name%></li>
+           <% } else if ( i === 1 ) { %>
+            <li><%- e.name %>
+           <% } else { %>
+            <li><%=e.name%></li>
+			<%}})%>
+		</ul>
+  	</script>
+    <script>
+        var data = [{
+			name: "max"
+		}, {
+			name: "remi"
+		}, {
+			name: "long"
+		}];
+        var templateString = document.getElementById("tpl").innerHTML;
+		var compiled = _.template(templateString);   //解析
+		var renderString = compiled(data);   //数据的交互   render 渲染
+		document.querySelector("div").innerHTML = renderString;
+    </script>
+</body>
+
+</html>

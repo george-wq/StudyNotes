@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
     <script src="underscore.js"></script>
     <script>
@@ -35,7 +37,7 @@
         // }
         // var restTest = _.restArguments(test);
         // console.log(restTest(1,2,3,4,5,6,7,8,9));
-        
+
 
         /** reduce **/
         // console.log(_.reduce([1, 2, 3], function(memo, num) {
@@ -43,7 +45,7 @@
         // }, 0));
 
         // console.log(_.flatten([1, [2], [3, [[4]]]], true));
-        
+
         /** partial */
         // var add = function(a, b) {
         //     return a + b;
@@ -67,11 +69,47 @@
         //         func.call(this, arguments[0]);
         //     }
         // }
-        
+
         // var test1 = test(function(age) {
         //     console.log(age);
         // });
         // console.log(test1(30));
+
+        // var obj = { nbame: '111', age: 20 };
+        // Object.prototype.aa = 123;
+
+        // console.log(_.keys(obj));
+
+        // _.extend({name: 'moe'}, {age: 50});
+
+        // var _ = {
+        //     owner: 'max'
+        // };
+
+        // // 引入underscore后
+
+        // console.log(_.owner);
+
+        // var _ = { value: 1 }
+
+        // // 引入 underscore 后
+
+        // // 放弃 "_"，使用 "$"
+        // var $ = _.noConflict();
+
+        // console.log(_.value); // 1
+
+        // // 使用 underscore 的方法
+        // $.each([1, 2, 3], alert);
+        // var undefined = 100;
+        // console.log(undefined);
+        // (function() {
+        //     var undefined = 10;
+        //     console.log(undefined);
+        // })();
+
+        console.log(_());
     </script>
 </body>
+
 </html>

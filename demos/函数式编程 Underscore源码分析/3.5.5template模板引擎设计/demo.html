@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script src="underscore.js"></script>
+		<script>
+			var data = {
+				name:"remi"
+			}
+			var templateString = "hello: <%= name %>";
+			var compiled = _.template(templateString), {};  //hello max
+			  console.log(compiled(data))
+			//_.template(templateString);
+			
+			
+			//数据发生了改变   模板重新编译 NO     预编译
+		</script>
+	</body>
+</html>

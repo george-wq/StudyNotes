@@ -1002,6 +1002,7 @@
   // ----------------
 
   // Keys in IE < 9 that won't be iterated by `for key in ...` and thus missed.
+  //判断正常浏览器是否有bug
   var hasEnumBug = !{toString: null}.propertyIsEnumerable('toString');
   var nonEnumerableProps = ['valueOf', 'isPrototypeOf', 'toString',
     'propertyIsEnumerable', 'hasOwnProperty', 'toLocaleString'];
@@ -1025,10 +1026,13 @@
 
   // Retrieve the names of an object's own properties.
   // Delegates to **ECMAScript 5**'s native `Object.keys`.
+
+  // polyfill 就是帮你加一层东西来解决问题，不光是兼容性问题，pollyfill是个概念
   _.keys = function(obj) {
     if (!_.isObject(obj)) return [];
-    if (nativeKeys) return nativeKeys(obj);
+    // if (nativeKeys) return nativeKeys(obj);
     var keys = [];
+    // 遍历自身 + 原型链上的属性
     for (var key in obj) if (has(obj, key)) keys.push(key);
     // Ahem, IE < 9.
     if (hasEnumBug) collectNonEnumProps(obj, keys);
@@ -1105,6 +1109,7 @@
   // An internal function for creating assigner functions.
   var createAssigner = function(keysFunc, defaults) {
     return function(obj) {
+      console.log(obj);
       var length = arguments.length;
       if (defaults) obj = Object(obj);
       if (length < 2 || obj == null) return obj;
@@ -1121,12 +1126,15 @@
     };
   };
 
+
+  // 对象属性的扩展
   // Extend a given object with all the properties in passed-in object(s).
-  _.extend = createAssigner(_.allKeys);
+  // 降低颗粒度 解耦
+  _.extend = createAssigner(_.allKeys); // 自身对象可枚举的属性 + 原型链上可枚举的属性
 
   // Assigns a given object with all the own properties in the passed-in object(s).
   // (https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)
-  _.extendOwn = _.assign = createAssigner(_.keys);
+  _.extendOwn = _.assign = createAssigner(_.keys); // 自身对象可枚举的属性
 
   // Returns the first key on an object that passes a predicate test.
   _.findKey = function(obj, predicate, context) {

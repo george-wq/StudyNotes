@@ -10,6 +10,8 @@
 
 3.4.3. [throttle 与 debounce 概念解析源码实现](https://github.com/george-wq/StudyNotes/issues/4)
 
+3.5.5. [template模板引擎设计](https://github.com/george-wq/StudyNotes/issues/5)
+
 ## 勘误及提问
 
 如果有疑问或者发现错误，可以在相应的 issues 进行提问或勘误。
