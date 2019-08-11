@@ -10,6 +10,8 @@
 
 3.1.4. [rest参数&underscore创建对象方式](https://github.com/george-wq/StudyNotes/issues/6) 
  
+3.1.4. [underscore中你发现了什么?](https://github.com/george-wq/StudyNotes/issues/9) 
+
 3.2.1 & 2 & 3. [ Underscore辅助功能篇](https://github.com/george-wq/StudyNotes/issues/7) 
 
 3.4.1. [偏函数(partial) & 缓存(memoize)使用场景 源码分析](https://github.com/george-wq/StudyNotes/issues/8) 
