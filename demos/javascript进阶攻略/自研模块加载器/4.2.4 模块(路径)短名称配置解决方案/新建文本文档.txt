@@ -1,0 +1,64 @@
+1：命名冲突  
+     作用域   =》  全局   局部  块作用域
+
+a.js      ret  
+b.js     ret
+
+demo.html   ret  覆盖
+
+作用域     颗粒度  （每个脚本文件就是一个独立的作用域     === 对象的命名空间
+a.js    =  {}   接口对象
+b.js    = {}   接口对象   对外暴漏什么样的接口
+
+
+
+2：文件依赖
+
+jQuery.js        //script
+jQuery.validata.js  插件
+
+demo.html 
+
+
+a.js
+require(b.js )    //依赖  deps    {}   接口对象
+
+
+
+
+模块加载器
+
+
+对象的命名空间
+var   obj = {     
+   xxxx1:{
+      ooo1:function(){}
+   },
+  xxxx2：{
+       ooo2:function(){}
+ }
+}
+
+obj. xxxx1.ooo1()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

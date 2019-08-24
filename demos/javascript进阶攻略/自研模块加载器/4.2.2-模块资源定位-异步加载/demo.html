@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script src="startUp.js"></script>
+		<script>
+			startUp.use(["a.js","b.js"], function(){
+				console.log("startUp...");
+			});
+		</script>
+	</body>
+</html>

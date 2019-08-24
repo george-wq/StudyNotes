@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script src="startUp.js"></script>
+		<script>
+			startUp.config({
+				paths: {
+					"static": "common/js"
+				}
+			});
+			startUp.use(["static/a"], function(a) { //路径短名称配置
+				console.log(a)
+			});
+		</script>
+	</body>
+</html>

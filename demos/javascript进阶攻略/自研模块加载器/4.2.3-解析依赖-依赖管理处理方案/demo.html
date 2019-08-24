@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script src="startUp.js"></script>
+		<script>
+			// 启动模块加载器
+			startUp.use(["a.js", "b.js"], function(a, b) {
+				console.log(a);
+				console.log(b);
+				console.log("startUp...");
+			});
+		</script>
+	</body>
+</html>

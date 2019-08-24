@@ -10,6 +10,7 @@ _.debounce = function(func, wait, immediate) {
         console.log(last);
         // 调用间隔小于wait
         if (last < wait) {
+            // console.log(wait - last);
             timer = setTimeout(later, wait - last);
         } else {
             // 间隔大于wait
