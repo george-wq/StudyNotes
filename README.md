@@ -22,6 +22,12 @@
 
 4.0 [JavaScript模块化编程](https://github.com/george-wq/StudyNotes/issues/10)
 
+
+## 专项分析
+
+[正则表达式](https://github.com/george-wq/StudyNotes/issues/11)
+
+
 ## 勘误及提问
 
 如果有疑问或者发现错误，可以在相应的 issues 进行提问或勘误。
