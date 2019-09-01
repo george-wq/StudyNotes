@@ -29,7 +29,7 @@
 
 [详解React生命周期](https://github.com/george-wq/StudyNotes/issues/12)
 
-[1.1.5ReactDOM与表单](https://github.com/george-wq/StudyNotes/issues/13)
+[ReactDOM与表单](https://github.com/george-wq/StudyNotes/issues/13)
 
 
 ## 专项分析
