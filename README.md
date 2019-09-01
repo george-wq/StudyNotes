@@ -2,6 +2,9 @@
 学习笔记持续更新中……
 
 ## 目录
+
+### Javascript专题
+
 2.1.1. [jQuery整体架构-核心功能函数揭秘](https://github.com/george-wq/StudyNotes/issues/1)
 
 2.2.1. [选择器](https://github.com/george-wq/StudyNotes/issues/2)
@@ -21,6 +24,12 @@
 3.5.5. [template模板引擎设计](https://github.com/george-wq/StudyNotes/issues/5)
 
 4.0 [JavaScript模块化编程](https://github.com/george-wq/StudyNotes/issues/10)
+
+### React专题
+
+[详解React生命周期](https://github.com/george-wq/StudyNotes/issues/12)
+
+[1.1.5ReactDOM与表单](https://github.com/george-wq/StudyNotes/issues/13)
 
 
 ## 专项分析
