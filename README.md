@@ -31,6 +31,10 @@
 
 [ReactDOM与表单](https://github.com/george-wq/StudyNotes/issues/13)
 
+[高阶组件](https://github.com/george-wq/StudyNotes/issues/14)
+
+[React Hooks](https://github.com/george-wq/StudyNotes/issues/15)
+
 
 ## 专项分析
 
