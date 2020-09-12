@@ -52,7 +52,7 @@
 
 [通过npm run build命令打包和直接输入webpack命令打包，有什么区别？](https://github.com/george-wq/StudyNotes/issues/16)
 
-[# 请说明Babel-loader，babel-core和babel-preset之间是什么关系？](https://github.com/george-wq/StudyNotes/issues/16)
+[请说明Babel-loader，babel-core和babel-preset之间是什么关系？](https://github.com/george-wq/StudyNotes/issues/16)
 
 [请写一个通用的.babelrc配置，要求能够兼容到ie8](https://github.com/george-wq/StudyNotes/issues/16)
 
@@ -66,6 +66,13 @@
 
 [雪碧图的处理](https://github.com/george-wq/StudyNotes/issues/16)
 
+[如何用webpack来优化前端性能?](https://github.com/george-wq/StudyNotes/issues/16)
+
+[如何提高webpack的打包速度?](https://github.com/george-wq/StudyNotes/issues/16)
+
+[webpack与grunt、gulp的不同？](https://github.com/george-wq/StudyNotes/issues/16)
+
+<!-- [雪碧图的处理](https://github.com/george-wq/StudyNotes/issues/16) -->
 
 <!-- ## 数据结构与算法专题
 

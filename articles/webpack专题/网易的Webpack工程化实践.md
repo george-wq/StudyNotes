@@ -23,3 +23,29 @@ Loader是第一解决方案
 项目的打包简化，可变性配置等
 通过编写相应的操作函数
 
+# 创建Plugin
+暴露出去类 =>  配置文件实例化 => 收集插件注册 => 调用里面的apply ＝》设置生命周期里的监听
+
+node 建立在一个监听下
+
+打包完成，即将输出
+compiler.hooks.emit
+
+done已经输出为dist目录
+compiler.hooks.done
+
+class myPlugin {
+    construtor(options){
+        this.options = options || {
+            // 默认配置
+        }
+    }
+
+    apply(complier) {
+        // complier.options  config配置
+        // complier.context  项目的绝对路径
+        complier.hooks.emit.tap('myplugins', function(compilation) {
+            // 每一个周期的compilation都不一样
+        })
+    }
+}

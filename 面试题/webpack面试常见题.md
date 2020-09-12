@@ -13,11 +13,11 @@ Webpack 启动后会从 Entry 里配置的 Module 开始递归解析 Entry 依�
 css-loader style-loader css处理loader
 file-loader url-loader image-loader 等图片字体文件等资源处理loader
 less-loader sass-loader babel-less-loader等编译loader
-语法糖的loader，比如vue-loader ts-loader
+语法糖的loader，比如vue-loader ts-loader, eslint-loader
 
 
 # 常用的plugin
-commonsChunkPlugin(提取公共模块)、uglifyjsWebpackPlugin(js体积压缩)、PurifyCSS(css体积优化)等优化文件体积的插件
+DllPlugin, cleanWebpackPlugin, commonsChunkPlugin(提取公共模块)、MiniCssExtractOlugin, uglifyjsWebpackPlugin(js体积压缩)、PurifyCSS(css体积优化)等优化文件体积的插件
 HtmlWebpackPlugin(生成html并且打包结果自动引入html)、HotModuleReplacementPlugin等额外功能插件
 
 
@@ -226,6 +226,7 @@ postcss本身并不具有什么功能，但是有丰富的插件系统支持完�
   ]
   })
 },
+```
 
 缺点：全程自动定位，1:1定位，但是大部分项目中的图片并不是1:1的，所以定位会不准确。
 
@@ -249,4 +250,89 @@ new webpackSpriteSmith({
   }
   })
 ```
+
+
+# 如何用webpack来优化前端性能?
+用webpack优化前端性能是指优化webpack的输出结果，让打包的最终结果在浏览器运行快速高效。
+1. 代码分割   减少加载代码大小，提取公共资源，减少加载次数 (从缓存中拿)
+  webpack3: commonChunksPlugin
+  webpack4: SplitChunksPlugin
+
+```
+optimization: {
+  splitChunks: {
+    chunks: 'initial', // initial（只对入口文件进行处理）、all(所有模块依赖分析)、async
+    minSize: 30000, // 提出大小控制
+  },
+  // 单独指定分割部分代码
+  cacheGroups: {
+    vendor: {
+      test: /([\\/]node_moudles[\\/])/,
+      name: 'vendor',
+      chunks: 'all'
+    }
+  },
+  runtimeChunk: true  // webpack运行代码
+}
+```
+2. 压缩代码
+  webpack3: optimize.UglifyJsPlugin
+  webpack4: optimization.minimize  mode为production时，自动压缩
+3. Tree Shaking: 将代码中永远不会走到的片段删除掉
+  webpack3: optimize.UglifyJsPlugin
+  webpack4: optimization.minimize 指定为 Uglify (mode为prodution时，自动tree-shaking)
+4. 利用CDN加速: 在构建过程中，将引用的静态资源路径修改为CDN上对应的路径。 
+
+
+# 如何提高webpack的打包速度?
+项目本身
+1. 减少依赖嵌套深度  => 为了减少webpack递归便利处理文件的时间
+2. 使用尽可能少的处理 => 为了减少webpack递归便利处理文件的时间
+
+webpack层面
+1. Dll处理(通过提取公共依赖)
+```
+// webpack.dll.js
+const webpack=require('webpack');
+module.exports={
+  entry:{
+  	jquery:["jquery"],
+  	loadsh:["loadsh"]
+  },
+  output:{
+    path:__dirname+"/src/dll",
+    filename:"./[name].js",
+    //引用名
+    library:'[name]'
+  },
+  plugins:[
+     new webpack.DllPlugin({
+      path:__dirname+"/src/dll/[name].json",
+      name:"[name]"
+     })
+  ]  
+}
+
+// webpack.config.js
+new webpack.DllReferencePlugin({
+  manifest:require('./src/dll/jquery.json')
+}),
+new webpack.DllReferencePlugin({
+  manifest:require('./src/dll/loadsh.json')
+})
+
+执行命令: webpack --config webpack.dll.js
+```
+2. 通过include减少loader搜索范围
+3. HappyPack 开启多进程去打包,但是如果打包文件不多，可能会适得其反，因为开启多线程也会有消耗
+4. uglifty优化 开启压缩缓存，webpack4中已经被移除
+5. 减少resolve，sourcemap，cache-loader，用新版本的 node 和 webpack 对优化作用不是很大
+
+
+# webpack与grunt、gulp的不同？
+Grunt、Gulp是基于任务运行的工具：
+它们会自动执行指定的任务，就像流水线，把资源放上去然后通过不同插件进行加工，它们包含活跃的社区，丰富的插件，能方便的打造各种工作流。
+Webpack是基于模块化打包的工具:
+自动化处理模块,webpack把一切当成模块，当 webpack 处理应用程序时，它会递归地构建一个依赖关系图(dependency graph)，其中包含应用程序需要的每个模块，然后将所有这些模块打包成一个或多个 bundle。
+因此这是完全不同的两类工具,而现在主流的方式是用npm script代替Grunt、Gulp,npm script同样可以打造任务流.
 
