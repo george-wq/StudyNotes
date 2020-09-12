@@ -72,7 +72,7 @@
 
 [webpack与grunt、gulp的不同？](https://github.com/george-wq/StudyNotes/issues/16)
 
-<!-- [雪碧图的处理](https://github.com/george-wq/StudyNotes/issues/16) -->
+[创建Plugin](https://github.com/george-wq/StudyNotes/issues/16)
 
 <!-- ## 数据结构与算法专题
 

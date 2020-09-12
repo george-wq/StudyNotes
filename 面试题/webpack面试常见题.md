@@ -327,6 +327,17 @@ new webpack.DllReferencePlugin({
 3. HappyPack 开启多进程去打包,但是如果打包文件不多，可能会适得其反，因为开启多线程也会有消耗
 4. uglifty优化 开启压缩缓存，webpack4中已经被移除
 5. 减少resolve，sourcemap，cache-loader，用新版本的 node 和 webpack 对优化作用不是很大
+6. 长缓存优化
+  长缓存是指浏览器对图片、js、css进行一个缓存,第一次请求了，下次就不会请求了,所以hash值至关重要。
+  output中filename中一般使用hash值，主要是供浏览器识别，为了刷新缓存
+  
+  解决方案:
+  1. 把hash改为chunkhash:
+  output中filename hash改为chunkhash, chunk代表一个module，只有module内容改变了才会改变
+  2. 引入NamedChunksPlugin和NamedMoudlesPlugin插件
+  把根据chunk的id改成name, 因为有可能在文件中改变了chunk(module)的引入顺序也会改变chunk的id,但是name不会变
+  3. mini-css-extract-plugin
+  因为extract-css-plugin不支持hash命名,而上面css插件支持, 可在mini-css-extract-plugin插件参数filename中使用hash
 
 
 # webpack与grunt、gulp的不同？
@@ -336,3 +347,42 @@ Webpack是基于模块化打包的工具:
 自动化处理模块,webpack把一切当成模块，当 webpack 处理应用程序时，它会递归地构建一个依赖关系图(dependency graph)，其中包含应用程序需要的每个模块，然后将所有这些模块打包成一个或多个 bundle。
 因此这是完全不同的两类工具,而现在主流的方式是用npm script代替Grunt、Gulp,npm script同样可以打造任务流.
 
+# 创建Plugin
+1. 暴露出去一个类
+2. 配置文件实例化 
+3. 收集插件注册 
+4. 调用里面的apply
+5. 监听生命周期里的函数
+
+Compiler 和 Compilation
+在开发 Plugin 时最常用的两个对象就是 Compiler 和 Compilation，它们是 Plugin 和 Webpack 之间的桥梁。 Compiler 和 Compilation 的含义如下：
+
+Compiler 对象包含了 Webpack 环境所有的的配置信息，包含 options，loaders，plugins 这些信息，这个对象在 Webpack 启动时候被实例化，它是全局唯一的，可以简单地把它理解为 Webpack 实例；
+
+Compilation 对象包含了当前的模块资源、编译生成资源、变化的文件等。当 Webpack 以开发模式运行时，每当检测到一个文件变化，一次新的 Compilation 将被创建。Compilation 对象也提供了很多事件回调供插件做扩展。通过 Compilation 也能读取到 Compiler 对象。
+Compiler 和 Compilation 的区别在于：Compiler 代表了整个 Webpack 从启动到关闭的生命周期，而 Compilation 只是代表了一次新的编译。
+
+
+打包完成，即将输出
+compiler.hooks.emit
+
+done已经输出为dist目录
+compiler.hooks.done
+
+compiler.hooks.make
+
+class myPlugin {
+    construtor(options){
+        this.options = options || {
+            // 默认配置
+        }
+    }
+
+    apply(complier) {
+        // complier.options  config配置
+        // complier.context  项目的绝对路径
+        complier.hooks.emit.tap('myplugins', function(compilation) {
+            // 每一个周期的compilation都不一样
+        })
+    }
+}
