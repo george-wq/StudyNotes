@@ -44,15 +44,32 @@
 
 [webpack的核心概念](https://github.com/george-wq/StudyNotes/issues/16)
 
-[如果现在需要引入一种文件，比如.wy类型的文件，那么应该配置loader还是plugins？请说明理由。](https://github.com/george-wq/StudyNotes/issues/16)
-
 [常用的loader](https://github.com/george-wq/StudyNotes/issues/16)
 
 [常用的plugin](https://github.com/george-wq/StudyNotes/issues/16)
 
-## 数据结构与算法专题
+[如果现在需要引入一种文件，比如.wy类型的文件，那么应该配置loader还是plugins？请说明理由。](https://github.com/george-wq/StudyNotes/issues/16)
 
-1. [时间复杂度和空间复杂度](https://github.com/george-wq/StudyNotes/issues/11)
+[通过npm run build命令打包和直接输入webpack命令打包，有什么区别？](https://github.com/george-wq/StudyNotes/issues/16)
+
+[# 请说明Babel-loader，babel-core和babel-preset之间是什么关系？](https://github.com/george-wq/StudyNotes/issues/16)
+
+[请写一个通用的.babelrc配置，要求能够兼容到ie8](https://github.com/george-wq/StudyNotes/issues/16)
+
+[请列举编译css所需要用到的loader和它们的顺序。](https://github.com/george-wq/StudyNotes/issues/16)
+
+[尝试写一个具有404页面的webpack-dev-server](https://github.com/george-wq/StudyNotes/issues/16)
+
+[webpack工作原理](https://github.com/george-wq/StudyNotes/issues/16)
+
+[编写loader](https://github.com/george-wq/StudyNotes/issues/16)
+
+[雪碧图的处理](https://github.com/george-wq/StudyNotes/issues/16)
+
+
+<!-- ## 数据结构与算法专题
+
+1. [时间复杂度和空间复杂度](https://github.com/george-wq/StudyNotes/issues/11) -->
 
 ## 勘误及提问
 
