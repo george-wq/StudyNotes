@@ -392,3 +392,17 @@ class myPlugin {
         })
     }
 }
+
+# 开启模块热替换
+模块热替换技术的优势有：
+1).实时预览反应更快，等待时间更短。
+2).不刷新浏览器能保留当前网页的运行状态，例如在使用Redux来管理数据的应用中搭配模块热替换能做到代码更新时 Redux 中的数据还保持不变。
+
+1. DevServer 默认不会开启模块热替换模式，要开启该模式，只需在启动时带上参数 --hot，完整命令是 webpack-dev-server --hot。
+2. 通过接入Plugin实现, new HotModuleReplacementPlugin()， 设置devServer选项中的hot字段为true
+ 
+ 热更新原理
+1. webpack-dev-server,通过express和webpack－dev－middleware开启一个服务，在 webpack 的 watch 模式下，文件系统中某一个文件发生修改，webpack 监听到文件变化，根据配置文件对模块重新编译打包，并将打包后的代码通过简单的 JavaScript 对象保存在内存中。
+2. 通过 sockjs（webpack-dev-server 的依赖）在浏览器端和服务端之间建立一个 websocket 长连接，将 webpack 编译打包的各个阶段的状态信息告知浏览器端。
+3. 发生代码改变，服务通过websocket通知客户端
+4. 客户端替换新代码

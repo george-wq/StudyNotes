@@ -74,6 +74,8 @@
 
 [创建Plugin](https://github.com/george-wq/StudyNotes/issues/16)
 
+[开启模块热替换](https://github.com/george-wq/StudyNotes/issues/16)
+
 <!-- ## 数据结构与算法专题
 
 1. [时间复杂度和空间复杂度](https://github.com/george-wq/StudyNotes/issues/11) -->
