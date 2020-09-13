@@ -25,7 +25,7 @@
 
 4.0 [JavaScript模块化编程](https://github.com/george-wq/StudyNotes/issues/10)
 
-### React专题
+### React面试专题
 
 [详解React生命周期](https://github.com/george-wq/StudyNotes/issues/12)
 
@@ -33,7 +33,28 @@
 
 [高阶组件](https://github.com/george-wq/StudyNotes/issues/14)
 
-[React Hooks](https://github.com/george-wq/StudyNotes/issues/15)
+[详解Virtual DOM](https://github.com/george-wq/StudyNotes/issues/17)
+
+[react16废弃的生命周期，原因？](https://github.com/george-wq/StudyNotes/issues/17）
+
+[聊一聊 hooks 怎么处理生命周期？](https://github.com/george-wq/StudyNotes/issues/17)
+
+[深入 setState 机制](https://github.com/george-wq/StudyNotes/issues/17)
+
+[setState 循环调用风险](https://github.com/george-wq/StudyNotes/issues/17)
+
+[详解 React 16 的 React Fiber && Diff 策略](https://github.com/george-wq/StudyNotes/issues/17)
+
+[React 16 之前不足](https://github.com/george-wq/StudyNotes/issues/17)
+
+[什么是Fiber](https://github.com/george-wq/StudyNotes/issues/17)
+
+[React 如何实现调度](https://github.com/george-wq/StudyNotes/issues/17)
+
+[React中的性能优化](https://github.com/george-wq/StudyNotes/issues/17)
+
+[React事件机制](https://github.com/george-wq/StudyNotes/issues/17)
+
 
 
 ## 专项分析
