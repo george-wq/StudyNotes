@@ -362,14 +362,20 @@ Compiler 对象包含了 Webpack 环境所有的的配置信息，包含 options
 Compilation 对象包含了当前的模块资源、编译生成资源、变化的文件等。当 Webpack 以开发模式运行时，每当检测到一个文件变化，一次新的 Compilation 将被创建。Compilation 对象也提供了很多事件回调供插件做扩展。通过 Compilation 也能读取到 Compiler 对象。
 Compiler 和 Compilation 的区别在于：Compiler 代表了整个 Webpack 从启动到关闭的生命周期，而 Compilation 只是代表了一次新的编译。
 
+// 开始读取 records 之前，钩入(hook into) compiler。
+compiler.hooks.run
 
-打包完成，即将输出
+// 编译(compilation)创建之后，执行插件。
+compiler.hooks.compilation
+
+// 打包完成，即将输出
 compiler.hooks.emit
 
-done已经输出为dist目录
+// 编译(compilation)完成。
 compiler.hooks.done
 
-compiler.hooks.make
+// output 目录之前这两个时间节点，afterPlugin是在emit之前被触发的，所以输出顺序更靠前
+compiler.hooks.afterPlugin
 
 class myPlugin {
     construtor(options){
@@ -381,7 +387,7 @@ class myPlugin {
     apply(complier) {
         // complier.options  config配置
         // complier.context  项目的绝对路径
-        complier.hooks.emit.tap('myplugins', function(compilation) {
+        complier.hooks.emit.tap('myPlugins', function(compilation) {
             // 每一个周期的compilation都不一样
         })
     }
