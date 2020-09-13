@@ -285,6 +285,26 @@ optimization: {
 
 
 # 如何提高webpack的打包速度?
+
+一、测量构建时间
+优化 webpack 构建速度的第一步是知道将精力集中在哪里。我们可以通过 speed-measure-webpack-plugin 测量你的 webpack 构建期间各个阶段花费的时间：
+
+```
+步骤一：安装 speed-measure-webpack-plugin
+npm install speed-measure-webpack-plugin --save-dev
+
+复制代码步骤二：配置
+// 分析打包时间
+const SpeedMeasurePlugin = require("speed-measure-webpack-plugin");
+const smp = new SpeedMeasurePlugin();
+// ...
+module.exports = smp.wrap(prodWebpackConfig)
+
+它能够：
+分析整个打包总耗时；
+每个插件和 loader 的耗时情况；
+```
+
 项目本身
 1. 减少依赖嵌套深度  => 为了减少webpack递归便利处理文件的时间
 2. 使用尽可能少的处理 => 为了减少webpack递归便利处理文件的时间
@@ -327,18 +347,33 @@ new webpack.DllReferencePlugin({
 3. HappyPack 开启多进程去打包,但是如果打包文件不多，可能会适得其反，因为开启多线程也会有消耗
 4. uglifty优化 开启压缩缓存，webpack4中已经被移除
 5. 减少resolve，sourcemap，cache-loader，用新版本的 node 和 webpack 对优化作用不是很大
-6. 长缓存优化
-  长缓存是指浏览器对图片、js、css进行一个缓存,第一次请求了，下次就不会请求了,所以hash值至关重要。
-  output中filename中一般使用hash值，主要是供浏览器识别，为了刷新缓存
-  
-  解决方案:
-  1. 把hash改为chunkhash:
-  output中filename hash改为chunkhash, chunk代表一个module，只有module内容改变了才会改变
-  2. 引入NamedChunksPlugin和NamedMoudlesPlugin插件
-  把根据chunk的id改成name, 因为有可能在文件中改变了chunk(module)的引入顺序也会改变chunk的id,但是name不会变
-  3. mini-css-extract-plugin
-  因为extract-css-plugin不支持hash命名,而上面css插件支持, 可在mini-css-extract-plugin插件参数filename中使用hash
+6. 合理利用缓存（缩短连续构建时间，增加初始构建时间）
+使用 webpack 缓存的方法有几种，例如使用 cache-loader，HardSourceWebpackPlugin 或 babel-loader 的 cacheDirectory 标志。 所有这些缓存方法都有启动的开销。 重新运行期间在本地节省的时间很大，但是初始（冷）运行实际上会更慢。
+如果你的项目生产版本每次都必须进行初始构建的话，缓存会增加构建时间，减慢你的速度。如果不是，那它们就会大大缩减你二次构建的时间。
+```
+// cache-loader
+cache-loader 和 thread-loader 一样，使用起来也很简单，仅仅需要在一些性能开销较大的 loader 之前添加此 loader，以将结果缓存到磁盘里，显著提升二次构建速度。
 
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.ext$/,
+        use: ['cache-loader', ...loaders],
+        include: path.resolve('src'),
+      },
+    ],
+  },
+};
+
+⚠️ 请注意，保存和读取这些缓存文件会有一些时间开销，所以请只对性能开销较大的 loader 使用此 loader。
+
+// HardSourceWebpackPlugin
+第一次构建将花费正常的时间
+第二次构建将显着加快（大概提升90%的构建速度）。
+
+```
+参考： https://juejin.im/post/6844904056985485320
 
 # webpack与grunt、gulp的不同？
 Grunt、Gulp是基于任务运行的工具：
@@ -406,3 +441,9 @@ class myPlugin {
 2. 通过 sockjs（webpack-dev-server 的依赖）在浏览器端和服务端之间建立一个 websocket 长连接，将 webpack 编译打包的各个阶段的状态信息告知浏览器端。
 3. 发生代码改变，服务通过websocket通知客户端
 4. 客户端替换新代码
+
+
+# webpack是如何实现动态导入的
+参考： https://juejin.im/post/6844903888319954952
+
+
