@@ -35,7 +35,7 @@
 
 [详解Virtual DOM](https://github.com/george-wq/StudyNotes/issues/17)
 
-[react16废弃的生命周期，原因？](https://github.com/george-wq/StudyNotes/issues/17）
+[react16废弃的生命周期，原因?](https://github.com/george-wq/StudyNotes/issues/17)
 
 [聊一聊 hooks 怎么处理生命周期？](https://github.com/george-wq/StudyNotes/issues/17)
 
