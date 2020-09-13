@@ -35,8 +35,18 @@
 
 ## css常见面试专题
 
+## 常见的手写编程题
+[new的模拟实现](https://github.com/george-wq/StudyNotes/issues/18)
 
-### React面试专题
+[call和apply的模拟实现](https://github.com/george-wq/StudyNotes/issues/18)
+
+[防抖 & 节流](https://github.com/george-wq/StudyNotes/issues/18)
+
+[深浅拷贝](https://github.com/george-wq/StudyNotes/issues/18)
+
+[手写Promise](https://github.com/george-wq/StudyNotes/issues/18)
+
+## React面试专题
 
 [详解React生命周期](https://github.com/george-wq/StudyNotes/issues/12)
 
