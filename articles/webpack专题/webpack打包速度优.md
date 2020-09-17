@@ -76,9 +76,7 @@ new webpack.DllReferencePlugin({
 ### 长缓存优化
 
 长缓存是指浏览器对图片、js、css进行一个缓存,第一次请求了，下次就不会请求了,所以hash值至关重要。
-
 output中filename中一般使用hash值，主要是供浏览器识别，为了刷新缓存
-
 
 解决方案
 

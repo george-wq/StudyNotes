@@ -18,7 +18,11 @@ less-loader sass-loader babel-less-loader等编译loader
 
 # 常用的plugin
 DllPlugin, cleanWebpackPlugin, commonsChunkPlugin(提取公共模块)、MiniCssExtractOlugin, uglifyjsWebpackPlugin(js体积压缩)、PurifyCSS(css体积优化)等优化文件体积的插件
-HtmlWebpackPlugin(生成html并且打包结果自动引入html)、HotModuleReplacementPlugin等额外功能插件
+HotModuleReplacementPlugin等额外功能插件
+HtmlWebpackPlugin(生成html并且打包结果自动引入打包完的bunder.js, 多页面中要配置多个HtmlWebpackPlugin)
+
+
+
 
 
 # 如果现在需要引入一种文件，比如.wy类型的文件，那么应该配置loader还是plugins？请说明理由。
@@ -251,38 +255,128 @@ new webpackSpriteSmith({
   })
 ```
 
+# 多入口的实现，区分何时用但入口或者多入口
+
+```
+// 多入口的实现, 配置多个HtmlWebpackPlugin，生成多个html并分别引入各自依赖的bunder.js
+
+new HtmlWebpackPlugin({
+  filename: 'index.html',
+  template: './src/index.html',
+  chunks: ['app']
+})
+new HtmlWebpackPlugin({
+  filename: 'index2.html',
+  template: './src/index.html',
+  chunks: ['app2']
+})
+```
+主要判断项目是需要多html还是单html的来区分。
+1. SPA => 单入口
+2. MVC, SSR => 多入口
+
 
 # 如何用webpack来优化前端性能?
 用webpack优化前端性能是指优化webpack的输出结果，让打包的最终结果在浏览器运行快速高效。
-1. 代码分割   减少加载代码大小，提取公共资源，减少加载次数 (从缓存中拿)
-  webpack3: commonChunksPlugin
-  webpack4: SplitChunksPlugin
+最主要的核心方案： 代码分割 和 体积优化
 
+1. 代码分割
+> 1. 减少加载代码大小
+> 2. 提取公共资源，减少加载次数 (从缓存中拿)
+
+### 多页面应用：
+提取公共依赖
+把几个页面之中都用到的依赖给打包为一个单独文件，以便于第二次加载从缓存中拿。
+
+### 单页面应用：
+减少文件体积，拆分应用
+把需要异步加载改成异步加载 （动态路由，异步组件） ？？？
+
+### 为了业务代码纯净, 方便对第三方模块的保存
+有的时候我们不希望业务代码里混入了第三方代码，或者webpack配置代码
+把第三方的代码和webpack配置代码拆分为单独文件 (app.js、vendor.js、manifest.js)
+
+所以一般打包
+
+多页面应用
+主业务代码(app.js) + 公共依赖 + 第三方包(vendor.js) + webpack运行代码(manifest.js)
+
+单页面应用
+主业务代码(app.js) + 异步模块 + 第三方包(vendor.js) + webpack运行代码(manifest.js)
+
+webpack3: commonChunksPlugin
+webpack4: SplitChunksPlugin
+
+optimization 能进行代码 分割，压缩，uglifty
 ```
 optimization: {
   splitChunks: {
-    chunks: 'initial', // initial（只对入口文件进行处理）、all(所有模块依赖分析)、async
-    minSize: 30000, // 提出大小控制
+    chunks: 'initial', // initial（只对入口文件进行处理）、all(所有模块依赖分析)、async异步
+    minSize: 30000, // 大小控制 默认30000 ＝ 30kb， 默认大于30kb的文件进行提取，公共模块大一点提取才有意义，因为会多一个http请求
+    
+    // 单独指定分割部分代码
+    cacheGroups: {
+      vendor: {
+        test: /([\\/]node_moudles[\\/])/,
+        name: 'vendor',
+        chunks: 'all'
+      }
+    },
   },
-  // 单独指定分割部分代码
-  cacheGroups: {
-    vendor: {
-      test: /([\\/]node_moudles[\\/])/,
-      name: 'vendor',
-      chunks: 'all'
-    }
-  },
-  runtimeChunk: true  // webpack运行代码
+
+  runtimeChunk: true  // webpack运行代码 => manifest.js
 }
 ```
-2. 压缩代码
+2. 体积优化，压缩代码
   webpack3: optimize.UglifyJsPlugin
-  webpack4: optimization.minimize  mode为production时，自动压缩
-3. Tree Shaking: 将代码中永远不会走到的片段删除掉
+  webpack4: optimization.minimize => 等同于 mode为production，默认压缩
+3. 体积优化, Tree Shaking: 将代码中永远不会走到的片段删除掉
   webpack3: optimize.UglifyJsPlugin
-  webpack4: optimization.minimize 指定为 Uglify (mode为prodution时，自动tree-shaking)
-4. 利用CDN加速: 在构建过程中，将引用的静态资源路径修改为CDN上对应的路径。 
+  webpack4: optimization.minimize 指定为 Uglify => 等同于 mode为production，自动tree-shaking
+4. 提取公共多个css文件中依赖的css
+```
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
+moudle: {
+  rules: [
+    {
+      test: /\.css$/
+      use: [
+        {
+          loader: MiniCssExtractPlugin.loader   // 必须把style-loader替换成 MiniCssExtractPlugin
+        },
+        {
+          loader: 'css-loader',
+          options: {}
+        }
+      ]
+    }
+  ]
+},
+
+plugins: [
+  new MiniCssExtractPlugin({
+    filename: '[name].css' // 静态的打包名
+  })
+]
+```
+5. 利用CDN加速: 在构建过程中，将引用的静态资源路径修改为CDN上对应的路径。 
+
+# Tree Shaking原理
+将代码中永远不会走到的片段删除掉
+
+```
+import { moudle } from './modulea.js';
+ 
+exports moudle {
+
+}
+
+检测模块a是否使用，没有的话才进行tree shaking
+
+1. 必须建立在模块化的基础之上，jquery，underscore这些自执行函数都没有用。
+2. Vue2是不支持Tree－shaking的，Vue3重构后支持了。
+```
 
 # 如何提高webpack的打包速度?
 
@@ -301,9 +395,31 @@ const smp = new SpeedMeasurePlugin();
 module.exports = smp.wrap(prodWebpackConfig)
 
 它能够：
-分析整个打包总耗时；
+分析整个打包总耗时;
 每个插件和 loader 的耗时情况；
 ```
+
+## 可视化结果： 
+官方版本:
+Mac： webpack --profile --json > stats.json
+Window: webpack --profile --json | Out-file 'stats.json' -Encoding OEM
+
+把json文件上传至下面网址可看到具体分析
+http://webpack.github.io/analyse/
+
+社区版本:
+webpack－bundle－analyzer
+```
+const wba = import('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
+new wba();
+```
+打包完成后弹出一个分析页面，以chunks来分析。
+
+可参考以下指标：
+1）看提取的模块的信息是否正确
+2）模块的大小，看是否可以优化
+3）打包的速度
 
 项目本身
 1. 减少依赖嵌套深度  => 为了减少webpack递归便利处理文件的时间
@@ -346,7 +462,7 @@ new webpack.DllReferencePlugin({
 2. 通过include减少loader搜索范围
 3. HappyPack 开启多进程去打包,但是如果打包文件不多，可能会适得其反，因为开启多线程也会有消耗
 4. uglifty优化 开启压缩缓存，webpack4中已经被移除
-5. 减少resolve，sourcemap，cache-loader，用新版本的 node 和 webpack 对优化作用不是很大
+5. 减少resolve（解析路径也要耗时间），sourcemap（等级调高会慢），cache-loader（对loader进行缓存），用新版本的 node 和 webpack 对优化作用不是很大
 6. 合理利用缓存（缩短连续构建时间，增加初始构建时间）
 使用 webpack 缓存的方法有几种，例如使用 cache-loader，HardSourceWebpackPlugin 或 babel-loader 的 cacheDirectory 标志。 所有这些缓存方法都有启动的开销。 重新运行期间在本地节省的时间很大，但是初始（冷）运行实际上会更慢。
 如果你的项目生产版本每次都必须进行初始构建的话，缓存会增加构建时间，减慢你的速度。如果不是，那它们就会大大缩减你二次构建的时间。
@@ -373,6 +489,19 @@ module.exports = {
 第二次构建将显着加快（大概提升90%的构建速度）。
 
 ```
+
+7. 长缓存优化
+长缓存是指浏览器对图片、js、css进行一个缓存,第一次请求了，下次就不会请求了,所以hash值至关重要。
+output中filename中一般使用hash值，主要是供浏览器识别，为了刷新缓存
+
+解决方案
+vendor, 公共依赖插件模块 不需要更改hash，只有app更改时只要改app的hash。
+1. 把hash改为chunkhash, output中filename hash改为chunkhash, chunk代表一个module，只有module内容改变了才会改变
+
+2. 引入NamedChunksPlugin和NamedMoudlesPlugin插件, 把根据chunk的id改成name, 因为有可能在文件中改变了chunk(module)的引入顺序也会改变chunk的id,但是name不会变
+
+3. mini-css-extract-plugin, 因为extract-css-plugin不支持hash命名,而上面css插件支持, 可在mini-css-extract-plugin插件参数filename中使用hash
+
 参考： https://juejin.im/post/6844904056985485320
 
 # webpack与grunt、gulp的不同？
