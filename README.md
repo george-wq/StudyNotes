@@ -76,9 +76,12 @@
 
 [React事件机制](https://github.com/george-wq/StudyNotes/issues/17)
 
+
 react生态：
 
 [React-router原理](https://github.com/george-wq/StudyNotes/issues/19)
+
+[Redux原理](https://github.com/george-wq/StudyNotes/issues/19)
 
 
 
@@ -142,3 +145,9 @@ babel 原理， 写一个babel
 ## License
 
 所有文章采用[知识共享署名-非商业性使用-相同方式共享 3.0 中国大陆许可协议]
+
+
+字符串相乘
+删除字符串中出现次数 >= 2 次的相邻字符
+滑动窗口最大值问题
+常数时间插入、删除和获取随机元素
