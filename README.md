@@ -40,11 +40,15 @@
 
 [call和apply的模拟实现](https://github.com/george-wq/StudyNotes/issues/18)
 
+[JavaScript深入之bind的模拟实现](https://github.com/george-wq/StudyNotes/issues/18)
+
 [防抖 & 节流](https://github.com/george-wq/StudyNotes/issues/18)
 
 [深浅拷贝](https://github.com/george-wq/StudyNotes/issues/18)
 
 [手写Promise](https://github.com/george-wq/StudyNotes/issues/18)
+
+[手写数组去重、扁平化函数](https://github.com/george-wq/StudyNotes/issues/18)
 
 ## React面试专题
 
