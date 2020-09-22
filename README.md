@@ -85,7 +85,7 @@ react生态：
 
 [React-router原理](https://github.com/george-wq/StudyNotes/issues/19)
 
-[Redux原理](https://github.com/george-wq/StudyNotes/issues/19)
+[Redux原理](https://github.com/george-wq/StudyNotes/issues/20)
 
 
 
