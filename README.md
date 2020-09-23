@@ -47,6 +47,9 @@
 
 [块级元素，行内块级元素，内联元素？](https://github.com/george-wq/StudyNotes/issues/21)
 
+[CSS有几种定位方式 (position) ？](https://github.com/george-wq/StudyNotes/issues/21)
+
+[如何理解z-index？✨](https://github.com/george-wq/StudyNotes/issues/21)
 
 
 ## 常见的手写编程题
