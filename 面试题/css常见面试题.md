@@ -134,6 +134,14 @@ sticky：粘性定位，特性近似于relative和fixed的合体，其在实际�
 
 CSS 中的z-index属性控制重叠元素的垂直叠加顺序，默认元素的z-index为0，我们可以修改z-index来控制元素的图层位置，而且z-index只能影响设置了position值的元素。
 
+### 一个“片面”的理解
+
+以往，由于自己使用z-index的频率不大，所以对这个CSS属性存在比较片面的认识。一直认为z-index就是用来描述定义一个元素在屏幕Z轴上的堆叠顺序。z-index值越大在Z轴上就越靠上，也就是离屏幕观察者越近。最后才发现这个认识存在很大的问题：
+```
+1. 首先，z-index属性值并不是在任何元素上都有效果。它<strong>仅在</strong>定位元素（定义了position属性，且属性值为非static值的元素）上有效果。
+2. 判断元素在Z轴上的堆叠顺序，不仅仅是直接比较两个元素的z-index值的大小，这个堆叠顺序实际由元素的层叠上下文、层叠等级共同决定。
+```
+
 
 # 如何理解层叠上下文？✨
 
@@ -179,3 +187,115 @@ CSS3中的属性对层叠上下文的影响
 
 
 参考： https://blog.csdn.net/llll789789/article/details/97562099
+
+
+# 清除浮动有哪些方法？
+浮动：使元素脱离文档流，按照指定的方向（左或右发生移动），直到它的外边缘碰到包含框或另一个浮动框的边框为止。
+浮动方法：float：left｜right
+
+浮动的情况
+1. 块级标签会默认占据一行, 设置成float:left, 排成一排
+2. 浮动只会影响他后面的元素
+3. 浮动对文字的影响 给p标签浮动，浮动框只会占据自己的位置，使文字可以围绕浮动框显示
+
+浮动之后有很多特性
+1. 块级元素可以横排显示
+2. 行内元素可以设置宽度和高度
+3. 元素没有设置宽度和高度时，宽度为内容撑开宽
+4. 支持margin
+5. 脱离文档流
+6. 提升半层级
+问题：不支持margin:auto;
+
+为什么要清除浮动？
+前面提到了我给了外面的div一个高度，这里我们不给他高度，让里面的p浮动看看会发生什么情况。
+ 我们会发现子元素浮动会造成父级盒子高度坍塌，这样如果下面在进行继续布局的话会使页面布局错乱，(下图中黄色的盒子是nav下的div)如果想要继续布局就要清除浮动了，这里我介绍几种清除浮动的方法。
+
+解决办法：
+1. 父级 紧邻兄弟法，设置clear：both
+2. 父级给高度
+3. 父级overflow:hidden
+4. Clearfix 方法：上文使用.clearfix类已经提到
+
+>在flex已经成为布局主流之后，浮动这种东西越来越少见了，毕竟它的副作用太大
+
+参考：https://www.cnblogs.com/z937741304/p/7630365.html
+
+
+# 你对css sprites的理解，好处是什么？
+雪碧图也叫CSS精灵， 是一CSS图像合成技术，开发人员往往将小图标合并在一起之后的图片称作雪碧图。
+
+好处：
+1. 减少加载多张图片的 HTTP 请求数（一张雪碧图只需要一个请求）
+2. 提前加载资源
+
+不足：
+1. CSS Sprite维护成本较高，如果页面背景有少许改动，一般就要改这张合并的图片
+2. 加载速度优势在http2开启后荡然无存，HTTP2多路复用，多张图片也可以重复利用一个连接通道搞定
+
+参考：webpack设置雪碧图部分。
+
+# 谈谈对BFC的理解✨
+
+BFC是指一个独立的渲染区域，只有Block-level Box参与， 它规定了内部的Block-level Box如何布局，并且与这个区域外部毫不相干.
+
+它的作用是在一块独立的区域，让处于BFC内部的元素与外部的元素互相隔离.
+
+BFC触发条件:
+
+根元素，即HTML元素
+position: fixed/absolute
+float 不为none
+overflow不为visible
+display的值为inline-block、table-cell、table-caption
+
+参考：https://www.cxymsg.com/guide/cssBasic.html#%E8%B0%88%E8%B0%88%E5%AF%B9bfc%E7%9A%84%E7%90%86%E8%A7%A3%E2%9C%A8
+     https://www.cnblogs.com/xiaohuochai/p/5248536.html
+     https://zhuanlan.zhihu.com/p/
+
+
+# 你对盒模型的理解✨
+当对一个文档进行布局（lay out）的时候，浏览器的渲染引擎会根据标准之一的 CSS 基础框盒模型（CSS basic box model），将所有元素表示为一个个矩形的盒子（box）。CSS 决定这些盒子的大小、位置以及属性（例如颜色、背景、边框尺寸…）。
+
+盒模型由content（内容）、padding（内边距）、border（边框）、margin（外边距）组成。
+
+
+# 标准盒模型和怪异盒模型有什么区别？✨
+在W3C标准下，我们定义元素的width值即为盒模型中的content的宽度值，height值即为盒模型中的content的高度值。
+
+标准盒模型:
+>元素的宽度 = margin-left + border-left + padding-left + width + padding-right + border-right + margin-right
+
+而IE怪异盒模型（IE8以下）width的宽度并不是content的宽度，而是border-left + padding-left + content的宽度值 + padding-right + border-right之和，height同理。
+
+怪异盒模型:
+>元素占据的宽度 = margin-left + width + margin-right
+
+
+虽然现代浏览器默认使用W3C的标准盒模型，但是在不少情况下怪异盒模型更好用，于是W3C在css3中加入box-sizing。
+
+```
+box-sizing: content-box // 标准盒模型
+box-sizing: border-box // 怪异盒模型
+box-sizing: padding-box // 火狐的私有模型，没人用
+```
+
+# 你对flex的理解？✨
+
+
+# 伪类和伪元素的区别是什么？
+
+伪类（pseudo-class） 是一个以冒号(:)作为前缀，被添加到一个选择器末尾的关键字，当你希望样式在特定状态下才被呈现到指定的元素时，你可以往元素的选择器后面加上对应的伪类。
+
+伪元素用于创建一些不在文档树中的元素，并为其添加样式。比如说，我们可以通过::before来在一个元素前增加一些文本，并为这些文本添加样式。虽然用户可以看到这些文本，但是这些文本实际上不在文档树中。
+
+两者区别，伪类是通过在元素选择器上加入伪类改变元素状态，而伪元素通过对元素的操作进行对元素的改变。
+
+常用的伪类：
+:hover  :active  :focus  :link
+:first-child  :last-child  :not
+
+常用的伪元素:
+::before  ::after   ::first-line
+
+参考： http://www.alloyteam.com/2016/05/summary-of-pseudo-classes-and-pseudo-elements/
