@@ -75,6 +75,35 @@
 
 [CSS scroll-behavior](https://github.com/george-wq/StudyNotes/issues/21)
 
+## html常见面试专题
+
+[doctype的作用是什么？✨](https://github.com/george-wq/StudyNotes/issues/22)
+
+[HTML、XHTML、XML有什么区别](https://github.com/george-wq/StudyNotes/issues/22)
+
+[浏览器乱码的原因是什么？如何解决？](https://github.com/george-wq/StudyNotes/issues/22)
+
+[常见的浏览器有哪些？什么内核？](https://github.com/george-wq/StudyNotes/issues/22)
+
+[什么是data-属性？](https://github.com/george-wq/StudyNotes/issues/22)
+
+[你对HTML语义化的理解？✨](https://github.com/george-wq/StudyNotes/issues/22)
+
+[HTML5与HTML4的不同之处？](https://github.com/george-wq/StudyNotes/issues/22)
+
+[有哪些常用的meta标签？](https://github.com/george-wq/StudyNotes/issues/22)
+
+[src和href的区别？](https://github.com/george-wq/StudyNotes/issues/22)
+
+[知道img的srcset的作用是什么？（追问）](https://github.com/george-wq/StudyNotes/issues/22)
+
+[还有哪一个标签能起到跟srcset相似作用？（追问）](https://github.com/george-wq/StudyNotes/issues/22)
+
+[有几种前端储存的方式？✨](https://github.com/george-wq/StudyNotes/issues/22)
+
+[这些方式的区别是什么？（追问）✨](https://github.com/george-wq/StudyNotes/issues/22)
+
+
 ## 常见的手写编程题
 [new的模拟实现](https://github.com/george-wq/StudyNotes/issues/18)
 
