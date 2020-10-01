@@ -283,6 +283,10 @@ box-sizing: padding-box // 火狐的私有模型，没人用
 # 你对flex的理解？✨
 
 
+# 你对grid的理解？✨
+
+参考： http://www.ruanyifeng.com/blog/2019/03/grid-layout-tutorial.html
+
 # 伪类和伪元素的区别是什么？
 
 伪类（pseudo-class） 是一个以冒号(:)作为前缀，被添加到一个选择器末尾的关键字，当你希望样式在特定状态下才被呈现到指定的元素时，你可以往元素的选择器后面加上对应的伪类。
@@ -299,3 +303,79 @@ box-sizing: padding-box // 火狐的私有模型，没人用
 ::before  ::after   ::first-line
 
 参考： http://www.alloyteam.com/2016/05/summary-of-pseudo-classes-and-pseudo-elements/
+
+
+# 为什么有时候人们用translate来改变位置而不是定位？
+translate()是transform的一个值。改变transform或opacity不会触发浏览器重新布局（reflow）或重绘（repaint），只会触发复合（compositions）。而改变绝对定位会触发重新布局，进而触发重绘和复合。transform使浏览器为元素创建一个 GPU 图层，但改变绝对定位会使用到 CPU。 因此translate()更高效，可以缩短平滑动画的绘制时间。
+
+而translate改变位置时，元素依然会占据其原始空间，绝对定位就不会发生这种情况。
+
+
+# 关于CSS的动画与过渡问题
+transition过渡是通过初始和结束两个状态之间的平滑过渡实现简单动画的.
+animation则是通过关键帧@keyframes来实现更为复杂的动画效果。
+
+animation
+1. 复合属性，包括animation-name、animation-duration、animation-timing-function、animation-delay、animation-iteration-count、animation-direction、animation-play-state、animation-fill-mode共8个子属性
+```
+animation-name: 动画名称(默认值为none)
+animation-duration: 持续时间(默认值为0)
+animation-timing-function: 时间函数(默认值为ease)
+animation-delay: 延迟时间(默认值为0)
+animation-iteration-count: 循环次数(默认值为1)
+animation-direction: 动画方向(默认值为normal)
+animation-play-state: 播放状态(默认值为running)
+animation-fill-mode: 填充模式(默认值为none)
+```
+2. 关键帧
+animation制作动画效果需要两步，首先用关键帧声明动画，再用animation调用动画
+```
+@keyframes animation-name{
+    from | 0%{}
+    n%{}
+    to | 100%{}
+}
+```
+
+transition
+过渡transition是一个复合属性，包括transition-property、transition-duration、transition-timing-function、transition-delay这四个子属性。通过这四个子属性的配合来完成一个完整的过渡效果
+
+```
+transition-property: 过渡属性(默认值为all)
+transition-duration: 过渡持续时间(默认值为0s)
+transiton-timing-function: 过渡函数(默认值为ease函数)
+transition-delay: 过渡延迟时间(默认值为0s)
+
+
+.test{
+    height: 100px;
+    width: 100px;
+    background-color: pink;
+    transition-duration: 3s;
+    transition-property: all;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+}    
+.test:hover{
+    width: 500px;
+}
+```
+
+参考：https://www.cnblogs.com/xiaohuochai/p/5391663.html
+     https://www.cnblogs.com/xiaohuochai/p/5347930.html
+
+
+# CSS scroll-behavior
+scroll-behavior可以让浏览器的滚动定位表现为平滑。
+
+语法
+```
+scroll-behavior: auto;
+scroll-behavior: smooth;
+```
+
+这样，页面主滚动条任何定位，如锚点定位，快捷键滚动，或者JS scrollTop设置或者window.scrollTo()改变滚动位置，都会表现为平滑。
+
+参考：https://juejin.im/post/6844904033149255688#heading-12
+
+

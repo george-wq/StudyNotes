@@ -65,7 +65,15 @@
 
 [你对flex的理解？✨](https://github.com/george-wq/StudyNotes/issues/21)
 
+[你对grid的理解？✨](https://github.com/george-wq/StudyNotes/issues/21)
+
 [伪类和伪元素的区别是什么？](https://github.com/george-wq/StudyNotes/issues/21)
+
+[为什么有时候人们用translate来改变位置而不是定位？](https://github.com/george-wq/StudyNotes/issues/21)
+
+[关于CSS的动画与过渡问题](https://github.com/george-wq/StudyNotes/issues/21)
+
+[CSS scroll-behavior](https://github.com/george-wq/StudyNotes/issues/21)
 
 ## 常见的手写编程题
 [new的模拟实现](https://github.com/george-wq/StudyNotes/issues/18)
