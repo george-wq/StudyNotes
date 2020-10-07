@@ -32,7 +32,53 @@
 
 ## Javascript常见面试专题
 
+js基础
+[谈谈你对原型链的理解？ ✨](https://github.com/george-wq/StudyNotes/issues/23)
 
+[如何判断是否是数组？](https://github.com/george-wq/StudyNotes/issues/23)
+
+[ES6模块与CommonJS模块有什么区别？](https://github.com/george-wq/StudyNotes/issues/23)
+
+[聊一聊如何在JavaScript中实现不可变对象？](https://github.com/george-wq/StudyNotes/issues/23)
+
+[JavaScript的参数是按照什么方式传递的？](https://github.com/george-wq/StudyNotes/issues/23)
+
+[js有哪些类型?](https://github.com/george-wq/StudyNotes/issues/23)
+
+[为什么会有BigInt的提案？](https://github.com/george-wq/StudyNotes/issues/23)
+
+[null与undefined的区别是什么？](https://github.com/george-wq/StudyNotes/issues/23)
+
+[0.1+0.2为什么不等于0.3？](https://github.com/george-wq/StudyNotes/issues/23)
+
+[类型转换的规则有哪些？](https://github.com/george-wq/StudyNotes/issues/23)
+
+[类型转换的原理是什么？](https://github.com/george-wq/StudyNotes/issues/23)
+
+[箭头函数与普通函数（function）的区别是什么？构造函数（function）可以使用 new 生成实例，那么箭头函数可以吗？为什么？](https://github.com/george-wq/StudyNotes/issues/23)
+
+js机制
+[解释下变量提升？✨](https://github.com/george-wq/StudyNotes/issues/23)
+
+[一段JavaScript代码是如何执行的？✨](https://github.com/george-wq/StudyNotes/issues/23)
+
+[JavaScript的作用域链理解吗？✨](https://github.com/george-wq/StudyNotes/issues/23)
+
+[谈一谈你对this的了解？✨](https://github.com/george-wq/StudyNotes/issues/23)
+
+[箭头函数的this指向哪里？✨](https://github.com/george-wq/StudyNotes/issues/23)
+
+[理解闭包吗？✨](https://github.com/george-wq/StudyNotes/issues/23)
+
+js内存
+[讲讲JavaScript垃圾回收是怎么做的？](https://github.com/george-wq/StudyNotes/issues/23)
+
+[JavaScript的基本类型和复杂类型是储存在哪里的？](https://github.com/george-wq/StudyNotes/issues/23)
+
+异步
+[async/await 是什么？](https://github.com/george-wq/StudyNotes/issues/23)
+
+[async/await 相比于Promise的优势？](https://github.com/george-wq/StudyNotes/issues/23)
 
 
 ## css常见面试专题
