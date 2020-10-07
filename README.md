@@ -150,6 +150,33 @@ js内存
 [这些方式的区别是什么？（追问）✨](https://github.com/george-wq/StudyNotes/issues/22)
 
 
+## 浏览器与新技术
+
+[常见的浏览器内核有哪些?](https://github.com/george-wq/StudyNotes/issues/24)
+
+[浏览器的主要组成部分是什么？](https://github.com/george-wq/StudyNotes/issues/24)
+
+[浏览器是如何渲染UI的？(webkit主流程)](https://github.com/george-wq/StudyNotes/issues/24)
+
+[浏览器如何解析css选择器？](https://github.com/george-wq/StudyNotes/issues/24)
+
+[DOM Tree是如何构建的？(待深入理解)](https://github.com/george-wq/StudyNotes/issues/24)
+
+[浏览器重绘与重排的区别？](https://github.com/george-wq/StudyNotes/issues/24)
+
+[如何触发重排和重绘？](https://github.com/george-wq/StudyNotes/issues/24)
+
+[如何避免重绘或者重排？(待深入理解)](https://github.com/george-wq/StudyNotes/issues/24)
+
+[前端如何实现即时通讯？(待深入)](https://github.com/george-wq/StudyNotes/issues/24)
+
+[什么是浏览器同源策略？](https://github.com/george-wq/StudyNotes/issues/24)
+
+[如何实现跨域？](https://github.com/george-wq/StudyNotes/issues/24)
+
+[深入理解浏览器的缓存机制 ✨](https://github.com/george-wq/StudyNotes/issues/24)
+
+
 ## 常见的手写编程题
 [new的模拟实现](https://github.com/george-wq/StudyNotes/issues/18)
 
