@@ -271,6 +271,54 @@ react生态：
 
 [webpack是如何实现动态导入的](https://github.com/george-wq/StudyNotes/issues/16)
 
+## 计算机基础
+
+### HTTP专题
+
+[HTTP有哪些方法？](https://github.com/george-wq/StudyNotes/issues/24)
+
+[这些方法的具体作用是什么？](https://github.com/george-wq/StudyNotes/issues/24)
+
+[GET和POST有什么区别？✨](https://github.com/george-wq/StudyNotes/issues/24)
+
+[PUT和POST都是给服务器发送新增资源，有什么区别？](https://github.com/george-wq/StudyNotes/issues/24)
+
+[PUT和PATCH都是给服务器发送修改资源，有什么区别？](https://github.com/george-wq/StudyNotes/issues/24)
+
+[http的请求报文是什么样的？✨](https://github.com/george-wq/StudyNotes/issues/24)
+
+[http的响应报文是什么样的？✨](https://github.com/george-wq/StudyNotes/issues/24)
+
+[聊一聊HTTP的部首有哪些？✨](https://github.com/george-wq/StudyNotes/issues/24)
+
+[聊一聊HTTP的状态码](https://github.com/george-wq/StudyNotes/issues/24)
+
+[同样是重定向307，303，302的区别？](https://github.com/george-wq/StudyNotes/issues/24)
+
+[HTTP的keep-alive是干什么的？](https://github.com/george-wq/StudyNotes/issues/24)
+
+[为什么有了HTTP为什么还要HTTPS？](https://github.com/george-wq/StudyNotes/issues/24)
+
+[HTTPS是如何保证安全的？✨](https://github.com/george-wq/StudyNotes/issues/24)
+
+[HTTP2相对于HTTP1.x有什么优势和特点？](https://github.com/george-wq/StudyNotes/issues/24)
+
+[HTTP的缓存的过程是怎样的？✨](https://github.com/george-wq/StudyNotes/issues/24)
+
+[什么时候会触发强缓存或者协商缓存？✨](https://github.com/george-wq/StudyNotes/issues/24)
+
+### TCP专题
+
+[TCP 的特性](https://github.com/george-wq/StudyNotes/issues/24)
+
+[请简述TCP\UDP的区别](https://github.com/george-wq/StudyNotes/issues/24)
+
+[说一说OSI七层模型](https://github.com/george-wq/StudyNotes/issues/24)
+
+[讲一下三次握手？✨](https://github.com/george-wq/StudyNotes/issues/24)
+
+[讲一下四次握手？✨](https://github.com/george-wq/StudyNotes/issues/24)
+
 ## 性能优化专题
 
 
