@@ -319,6 +319,25 @@ react生态：
 
 [讲一下四次握手？✨](https://github.com/george-wq/StudyNotes/issues/24)
 
+
+## 安全
+
+[有哪些可能引起前端安全的的问题?](https://github.com/george-wq/StudyNotes/issues/24)
+
+[XSS分为哪几类?](https://github.com/george-wq/StudyNotes/issues/24)
+
+[如何预防XSS?](https://github.com/george-wq/StudyNotes/issues/24)
+
+[CSRF是什么?](https://github.com/george-wq/StudyNotes/issues/24)
+
+[CSRF的攻击类型?](https://github.com/george-wq/StudyNotes/issues/24)
+
+[如何预防CSRF?](https://github.com/george-wq/StudyNotes/issues/24)
+
+[网络劫持有哪几种?](https://github.com/george-wq/StudyNotes/issues/24)
+
+[如何应对网络劫持?](https://github.com/george-wq/StudyNotes/issues/24)
+
 ## 性能优化专题
 
 
