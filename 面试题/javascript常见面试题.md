@@ -290,4 +290,11 @@ console.log(a); // { a: 1, b: 2 }
 
 # 讲讲JavaScript垃圾回收是怎么做的？
 
+# for in 和for of的区别
+for in遍历的是数组的索引（即键名）
+for of遍历的是数组元素值
 
++ for..of适用遍历数/数组对象/字符串/map/set等拥有迭代器对象的集合.但是不能遍历对象,因为没有迭代器对象.与forEach()不同的是，它可以正确响应break、continue和return语句
++ for-of循环不支持普通对象，但如果你想迭代一个对象的属性，你可以用for-in循环（这也是它的本职工作）或内建的Object.keys()方法
++ 遍历map对象时适合用解构
++ 当你为对象添加myObject.toString()方法后，就可以将对象转化为字符串，同样地，当你向任意对象添加myObjectSymbol.iterator方法，就可以遍历这个对象了。
