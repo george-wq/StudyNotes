@@ -33,6 +33,7 @@
 ## Javascript常见面试专题
 
 js基础
+
 [谈谈你对原型链的理解？ ✨](https://github.com/george-wq/StudyNotes/issues/23)
 
 [如何判断是否是数组？](https://github.com/george-wq/StudyNotes/issues/23)
@@ -60,6 +61,7 @@ js基础
 [for in 和for of的区别](https://github.com/george-wq/StudyNotes/issues/23)
 
 js机制
+
 [解释下变量提升？✨](https://github.com/george-wq/StudyNotes/issues/23)
 
 [一段JavaScript代码是如何执行的？✨](https://github.com/george-wq/StudyNotes/issues/23)
@@ -73,11 +75,13 @@ js机制
 [理解闭包吗？✨](https://github.com/george-wq/StudyNotes/issues/23)
 
 js内存
+
 [讲讲JavaScript垃圾回收是怎么做的？](https://github.com/george-wq/StudyNotes/issues/23)
 
 [JavaScript的基本类型和复杂类型是储存在哪里的？](https://github.com/george-wq/StudyNotes/issues/23)
 
 异步
+
 [async/await 是什么？](https://github.com/george-wq/StudyNotes/issues/23)
 
 [async/await 相比于Promise的优势？](https://github.com/george-wq/StudyNotes/issues/23)
