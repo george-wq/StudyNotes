@@ -18,7 +18,7 @@ D 的值等于 标签选择器 和 伪元素 出现的总次数 。
 一：建议使用link，慎用@import
 二：区别
 从属关系
-1.1 link：link是HTML提供的标签，不仅可以加载CSS，还可以定义rel等属性
+1.1 link：link是XHTML提供的标签，不仅可以加载CSS，还可以定义rel等属性
 1.2 @import：@import是css提供的语法，只有导入样式表的作用
 
 加载顺序
