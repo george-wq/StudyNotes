@@ -357,9 +357,19 @@ babel 原理， 写一个babel
 
 ## 数据结构与算法
 
+排序算法
+
 [介绍一下快排原理以及时间复杂度，并实现一个快排](https://github.com/george-wq/StudyNotes/issues/26)
 
 [洗牌算法](https://github.com/george-wq/StudyNotes/issues/26)
+
+[插入排序](https://github.com/george-wq/StudyNotes/issues/26)
+
+[希尔排序](https://github.com/george-wq/StudyNotes/issues/26)
+
+查找算法
+
+[二分查找算法与时间复杂度](https://github.com/george-wq/StudyNotes/issues/26)
 
 ## 勘误及提问
 
