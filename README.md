@@ -127,6 +127,14 @@ js内存
 
 [CSS scroll-behavior](https://github.com/george-wq/StudyNotes/issues/21)
 
+[ul内部除最后一个li以外设置右边框效果](https://github.com/george-wq/StudyNotes/issues/21)
+
+[flex: 1的完整写法？分别是什么意思？](https://github.com/george-wq/StudyNotes/issues/21)
+
+[css超出省略怎么写？](https://github.com/george-wq/StudyNotes/issues/21)
+
+[css预处理器，Less带来的好处？](https://github.com/george-wq/StudyNotes/issues/21)
+
 ## html常见面试专题
 
 [doctype的作用是什么？✨](https://github.com/george-wq/StudyNotes/issues/22)
@@ -366,6 +374,8 @@ babel 原理， 写一个babel
 [插入排序](https://github.com/george-wq/StudyNotes/issues/26)
 
 [希尔排序](https://github.com/george-wq/StudyNotes/issues/26)
+
+[归并排序](https://github.com/george-wq/StudyNotes/issues/26)
 
 查找算法
 

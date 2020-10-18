@@ -118,14 +118,15 @@ rem：相对单位，可理解为”root em”, 相对根节点html的字体大�
 # CSS有几种定位方式 (position) ？
 
 tatic: 正常文档流定位，此时 top, right, bottom, left 和 z-index 属性无效，块级元素从上往下纵向排布，行级元素从左向右排列。
-
 relative：相对定位，此时的『相对』是相对于正常文档流的位置。
-
 absolute：相对于最近的非 static 定位祖先元素的偏移，来确定元素位置，比如一个绝对定位元素它的父级、和祖父级元素都为relative，它会相对他的父级而产生偏移。
-
 fixed：指定元素相对于屏幕视口（viewport）的位置来指定元素位置。元素的位置在屏幕滚动时不会改变，比如那种回到顶部的按钮一般都是用此定位方式。
-
 sticky：粘性定位，特性近似于relative和fixed的合体，其在实际应用中的近似效果就是IOS通讯录滚动的时候的『顶屁股』。
+initial: 关键字用于设置 CSS 属性为它的默认值，可作用于任何 CSS 样式。（IE 不支持该关键字）
+inherit: 这个属性必然是默认继承的 (inherited: Yes) 或者是默认不继承的 (inherited: no)其中之一
+unset: unset 关键字我们可以简单理解为不设置。其实，它是关键字 initial 和 inherit 的组合。
+    1. 如果该属性是默认继承属性，该值等同于 inherit
+    2. 如果该属性是非继承属性，该值等同于 initial
 
 参考: https://louiszhai.github.io/2016/03/12/css-center/
 
@@ -138,7 +139,7 @@ CSS 中的z-index属性控制重叠元素的垂直叠加顺序，默认元素的
 
 以往，由于自己使用z-index的频率不大，所以对这个CSS属性存在比较片面的认识。一直认为z-index就是用来描述定义一个元素在屏幕Z轴上的堆叠顺序。z-index值越大在Z轴上就越靠上，也就是离屏幕观察者越近。最后才发现这个认识存在很大的问题：
 ```
-1. 首先，z-index属性值并不是在任何元素上都有效果。它<strong>仅在</strong>定位元素（定义了position属性，且属性值为非static值的元素）上有效果。
+1. 首先，z-index属性值并不是在任何元素上都有效果。它仅在定位元素（定义了position属性，且属性值为非static值的元素）上有效果。
 2. 判断元素在Z轴上的堆叠顺序，不仅仅是直接比较两个元素的z-index值的大小，这个堆叠顺序实际由元素的层叠上下文、层叠等级共同决定。
 ```
 
@@ -378,4 +379,87 @@ scroll-behavior: smooth;
 
 参考：https://juejin.im/post/6844904033149255688#heading-12
 
+
+# ul内部除最后一个li以外设置右边框效果
+
+1. last-child选择器
+```
+ul li {
+    border-right: 1px solid blue;    
+}
+
+ul li:last-child {
+    border-right: unset;
+}
+```
+
+2. not选择器
+```
+ul li:not {
+    border-right: 1px solid blue;
+}
+```
+
+# flex: 1的完整写法？分别是什么意思？
+
+flex的属性，默认值: 0 1 auto;
+flex-grow: 0;  如果存在剩余空间，也不放大
+flex-shrink: 1; 如果存在空间不足，该项目将缩小
+flex-basis: auto;  给上面二个属性分配多余空间之前，计算项目是否有多余空间，默认值auto，即项目本身的大小
+
+flex: 1; 实现三个不同内容的div平分空间
+```
+flex-grow: 1;
+flex-shrink: 1;
+flex-basis: 0%;
+```
+
+flex: 非负数字; 数字为flex-grow的值，flex-shrink: 1, flex-basis: 0%;
+flex: 一个长度或者百分比；flex-basis的值，flex-grow: 1. flex-shrink: 1;
+flex: 取二个非负数字；为flex-grow，flex-shrink的值，flex-basis: 0%;
+
+
+# css超出省略怎么写？
+
+ 单行
+```
+.single-ellipsis {
+    width: 500px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+```
+
+多行
+```
+.multiline-ellipsis {
+    display: -webkit-box;
+    word-break: break-all;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+```
+
+
+# css预处理器，Less带来的好处？
+
+1. CSS预处理器
+为CSS增加编程特性的拓展语言，可以使用变量，简单逻辑判断，函数等基本编程技巧。
+
+2. 解决的问题
++ css语法不够强大，因为无法嵌套导致有很多重复的选择器
++ 没有变量和合理的样式复用机制，导致逻辑上相关的属性值只能以字面量的形式重复输出，难以维护
+
+3. 常用规范
+变量，嵌套语法，混入，@import，运算，函数，继承等。
+
+4. CSS预处理带来的好处
++ CSS代码更加的整洁，容易维护，代码量更少
++ 修改更快，基础颜色使用变量，一处动处处动
++ 常用代码使用代码块，节省大量代码
++ CSS嵌套减少了大量的重复选择器，避免一些低级错误
++ 变量，混入大大提升了样式的复用性
 
