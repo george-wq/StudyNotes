@@ -144,3 +144,31 @@ sessionStorage：与localStorage基本类似，区别是sessionStorage当页面�
 Web SQL：2010年被W3C废弃的本地数据库数据存储方案，但是主流浏览器（火狐除外）都已经有了相关的实现，web sql类似于SQLite，是真正意义上的关系型数据库，用sql进行操作，当我们用JavaScript时要进行转换，较为繁琐。
 
 IndexedDB： 是被正式纳入HTML5标准的数据库储存方案，它是NoSQL数据库，用键值对进行储存，可以进行快速读取操作，非常适合web场景，同时用JavaScript进行操作会非常方便。
+
+
+# Html5有哪些新特性？如何处理Html5性标签的浏览器兼容问题？如何区分Html和Html5？
+1. Html5性特性
++ 拖拽释放(Drag, Drop) API
++ 语义话标签(header, section, nav, footer, artical)
++ 音频，视频API(audio, video)
++ 表单控件，calendar, date, time, email, url, search
++ 新的技术webworker, websocket, Geolocation
+
+2. Html5兼容问题处理
++ 自己创建，document.createElement('header')
++ 封装好的js库, html5shiv.js
+
+3. 如何区分Html和Html5
++ 文档类型声明不同
++ 结构语义上不同
+
+# 请说明Html布局元素的分类有哪些？应用场景是哪些？
+
+1. 内联元素：用于不指定宽高，宽高由内容决定
+span, a, b, strong, i, em, br, textarea
+
+2. 块状元素：用于指定宽高，标签占满一行
+div, ul, li, table, from, hr
+
+3. 内联块状元素：用于指定元素宽高，不占满一行
+

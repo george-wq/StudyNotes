@@ -163,6 +163,9 @@ js内存
 
 [这些方式的区别是什么？（追问）✨](https://github.com/george-wq/StudyNotes/issues/22)
 
+[Html5有哪些新特性？如何处理Html5性标签的浏览器兼容问题？如何区分Html和Html5？](https://github.com/george-wq/StudyNotes/issues/22)
+
+[请说明Html布局元素的分类有哪些？应用场景是哪些？](https://github.com/george-wq/StudyNotes/issues/22)
 
 ## 浏览器与新技术
 

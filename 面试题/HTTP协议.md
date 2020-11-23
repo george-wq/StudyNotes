@@ -108,7 +108,7 @@ PUT和PATCH都是更新资源，而PATCH用来对已知资源进行局部更新�
 + Content-Language 实体的资源语言
 + Content-Encoding 实体的编码格式
 + Content-Length 实体的大小（字节）
-+ Content-Type 实体媒体类型
++ Content-Type 实体媒体类型 text/html application/json
 + Content-MD5 实体报文的摘要
 + Content-Location 代替资源的yri
 + Content-Rnages 实体主体的位置返回
