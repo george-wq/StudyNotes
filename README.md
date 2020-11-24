@@ -169,65 +169,65 @@ js内存
 
 ## 浏览器与新技术
 
-[常见的浏览器内核有哪些?](https://github.com/george-wq/StudyNotes/issues/24)
+[常见的浏览器内核有哪些?](https://github.com/george-wq/StudyNotes/issues/27)
 
-[浏览器的主要组成部分是什么？](https://github.com/george-wq/StudyNotes/issues/24)
+[浏览器的主要组成部分是什么？](https://github.com/george-wq/StudyNotes/issues/27)
 
-[浏览器是如何渲染UI的？(webkit主流程)](https://github.com/george-wq/StudyNotes/issues/24)
+[浏览器是如何渲染UI的？(webkit主流程)](https://github.com/george-wq/StudyNotes/issues/27)
 
-[浏览器如何解析css选择器？](https://github.com/george-wq/StudyNotes/issues/24)
+[浏览器如何解析css选择器？](https://github.com/george-wq/StudyNotes/issues/27)
 
-[DOM Tree是如何构建的？(待深入理解)](https://github.com/george-wq/StudyNotes/issues/24)
+[DOM Tree是如何构建的？(待深入理解)](https://github.com/george-wq/StudyNotes/issues/27)
 
-[浏览器重绘与重排的区别？](https://github.com/george-wq/StudyNotes/issues/24)
+[浏览器重绘与重排的区别？](https://github.com/george-wq/StudyNotes/issues/27)
 
-[如何触发重排和重绘？](https://github.com/george-wq/StudyNotes/issues/24)
+[如何触发重排和重绘？](https://github.com/george-wq/StudyNotes/issues/27)
 
-[如何避免重绘或者重排？(待深入理解)](https://github.com/george-wq/StudyNotes/issues/24)
+[如何避免重绘或者重排？(待深入理解)](https://github.com/george-wq/StudyNotes/issues/27)
 
-[前端如何实现即时通讯？(待深入)](https://github.com/george-wq/StudyNotes/issues/24)
+[前端如何实现即时通讯？(待深入)](https://github.com/george-wq/StudyNotes/issues/27)
 
-[什么是浏览器同源策略？](https://github.com/george-wq/StudyNotes/issues/24)
+[什么是浏览器同源策略？](https://github.com/george-wq/StudyNotes/issues/27)
 
-[如何实现跨域？](https://github.com/george-wq/StudyNotes/issues/24)
+[如何实现跨域？](https://github.com/george-wq/StudyNotes/issues/27)
 
-[深入理解浏览器的缓存机制 ✨](https://github.com/george-wq/StudyNotes/issues/24)
+[深入理解浏览器的缓存机制 ✨](https://github.com/george-wq/StudyNotes/issues/27)
 
-[多进程架构中有哪些多进程?](https://github.com/george-wq/StudyNotes/issues/24)
+[多进程架构中有哪些多进程?](https://github.com/george-wq/StudyNotes/issues/27)
 
-[Chrome进程架构](https://github.com/george-wq/StudyNotes/issues/24)
+[Chrome进程架构](https://github.com/george-wq/StudyNotes/issues/27)
 
-[TCP协议：保证页面文件完整的送达浏览器](https://github.com/george-wq/StudyNotes/issues/24)
+[TCP协议：保证页面文件完整的送达浏览器](https://github.com/george-wq/StudyNotes/issues/27)
 
-[网络模型 OSI & TCP/IP](https://github.com/george-wq/StudyNotes/issues/24)
+[网络模型 OSI & TCP/IP](https://github.com/george-wq/StudyNotes/issues/27)
 
-[浏览器端发起HTTP请求流程](https://github.com/george-wq/StudyNotes/issues/24)
+[浏览器端发起HTTP请求流程](https://github.com/george-wq/StudyNotes/issues/27)
 
-[服务器端处理HTTP请求流程](https://github.com/george-wq/StudyNotes/issues/24)
+[服务器端处理HTTP请求流程](https://github.com/george-wq/StudyNotes/issues/27)
 
-[从输入URL到页面展示这中间发生了什么](https://github.com/george-wq/StudyNotes/issues/24)
+[从输入URL到页面展示这中间发生了什么](https://github.com/george-wq/StudyNotes/issues/27)
 
-[HTML,CSS,JavaScript是如何变成页面的？](https://github.com/george-wq/StudyNotes/issues/24)
+[HTML,CSS,JavaScript是如何变成页面的？](https://github.com/george-wq/StudyNotes/issues/27)
 
-[变量提升](https://github.com/george-wq/StudyNotes/issues/24)
+[变量提升](https://github.com/george-wq/StudyNotes/issues/27)
 
-[为什么会出现栈溢出](https://github.com/george-wq/StudyNotes/issues/24)
+[为什么会出现栈溢出](https://github.com/george-wq/StudyNotes/issues/27)
 
-[块级作用域：var缺陷以及为什么要引入let和const](https://github.com/george-wq/StudyNotes/issues/24)
+[块级作用域：var缺陷以及为什么要引入let和const](https://github.com/george-wq/StudyNotes/issues/27)
 
-[JavaScript是如何支持块级作用域的](https://github.com/george-wq/StudyNotes/issues/24)
+[JavaScript是如何支持块级作用域的](https://github.com/george-wq/StudyNotes/issues/27)
 
-[作用域链和闭包：代码中出现相同的变量，JavaScript引擎如何选择](https://github.com/george-wq/StudyNotes/issues/24)
+[作用域链和闭包：代码中出现相同的变量，JavaScript引擎如何选择](https://github.com/george-wq/StudyNotes/issues/27)
 
-[垃圾回收：垃圾数据如何自动回收](https://github.com/george-wq/StudyNotes/issues/24)
+[垃圾回收：垃圾数据如何自动回收](https://github.com/george-wq/StudyNotes/issues/27)
 
-[编译器和解析器：V8如何执行一段JavaScript代码的](https://github.com/george-wq/StudyNotes/issues/24)
+[编译器和解析器：V8如何执行一段JavaScript代码的](https://github.com/george-wq/StudyNotes/issues/27)
 
-[该如何实现多种类型文件的下载呢？](https://github.com/george-wq/StudyNotes/issues/24)
+[该如何实现多种类型文件的下载呢？](https://github.com/george-wq/StudyNotes/issues/27)
 
-[HTTP/1.1的优点和缺点](https://github.com/george-wq/StudyNotes/issues/24)
+[HTTP/1.1的优点和缺点](https://github.com/george-wq/StudyNotes/issues/27)
 
-[HTTP/2 的多路复用](https://github.com/george-wq/StudyNotes/issues/24)
+[HTTP/2 的多路复用](https://github.com/george-wq/StudyNotes/issues/27)
 
 
 ## 常见的手写编程题
